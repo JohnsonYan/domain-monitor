@@ -1,0 +1,35 @@
+Sat, 28 Oct 2017 01:06:39 monitor_mt.py[line:80] INFO Task Started.
+Sat, 28 Oct 2017 02:58:17 monitor_mt.py[line:82] INFO Task Completed.
+Sat, 28 Oct 2017 02:58:17 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Sun, 29 Oct 2017 01:58:18 monitor_mt.py[line:80] INFO Task Started.
+Sun, 29 Oct 2017 03:42:35 monitor_mt.py[line:82] INFO Task Completed.
+Sun, 29 Oct 2017 03:42:35 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Mon, 30 Oct 2017 01:42:36 monitor_mt.py[line:80] INFO Task Started.
+Mon, 30 Oct 2017 03:28:34 monitor_mt.py[line:82] INFO Task Completed.
+Mon, 30 Oct 2017 03:28:34 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:74] INFO Report generation.
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		distinct_domain_number [81602]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		tags_active_number [84149]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		tags_inactive_number [160621]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		timestamp [2017-10-30 11:09:10]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		tags_blocked_number [516]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		window_increment [244806]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		domain_number [244806]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		distinct_domain_daily_increment [81602]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		domain_daily_increment [81602]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		_id [59f697d8c3c0ec5d4c5592e4]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		distinct_window_increment [81602]
+Mon, 30 Oct 2017 11:09:12 stats.py[line:76] INFO 		tags_sinkhole_number [171]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:74] INFO Report generation.
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		distinct_domain_number [81602]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		tags_active_number [84149]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		tags_inactive_number [160621]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		timestamp [2017-10-30 11:49:18]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		tags_blocked_number [516]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		window_increment [244806]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		domain_number [244806]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		distinct_domain_daily_increment [81602]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		domain_daily_increment [81602]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		_id [59f6a140c3c0ec5df85bc7b7]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		distinct_window_increment [81602]
+Mon, 30 Oct 2017 11:49:20 stats.py[line:76] INFO 		tags_sinkhole_number [171]
