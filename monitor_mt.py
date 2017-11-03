@@ -9,13 +9,13 @@ import pymongo
 
 # logging config
 logging.config.fileConfig('logging.conf')
-log = logging.getLogger('default')
+log = logging.getLogger('domain')
 
 
 class MultiThread(object):
     def __init__(self):
         # schedule config
-        self.time_list = [17]
+        self.time_list = [9]
         # mongodb config
         self.host = 'localhost'
         self.port = 27017
@@ -172,7 +172,7 @@ class DomainMonitor(threading.Thread):
         _now = datetime.datetime.now()
         # 计算60天前的时间
         _outdate = str(_now - datetime.timedelta(days=60))
-        deleted_count = self.domain.delete_many({'timestamp': {'$gt': _outdate}}).deleted_count
+        deleted_count = self.domain.delete_many({'timestamp': {'$lt': _outdate}}).deleted_count
         log.info('Clean outdated(60 days ago) domains [deleted_count: %d]' % deleted_count)
 
 
