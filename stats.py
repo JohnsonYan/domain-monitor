@@ -58,15 +58,16 @@ class Stats(object):
         self.daily_report['distinct_domain_daily_increment'] = len(self.domain.distinct(
             'original_domain',
             {'timestamp': {'$gt': _today, '$lt': _tomorrow}}
-        ))
+        )) - self.daily_report['distinct_domain_number']
 
         # 窗口期增量计算
         _windowl_date = str(_now - datetime.timedelta(days=6)).split()[0]
         _windowr_date = str(_now + datetime.timedelta(days=1)).split()[0]
 
-        self.daily_report['window_increment'] = self.domain.find(
+        self.daily_report['window_increment'] = len(self.domain.distinct(
+            'original_domain',
             {'timestamp': {'$gt': _windowl_date, '$lt': _windowr_date}}
-        ).count()
+        ))
         self.daily_report['distinct_window_increment'] = len(self.domain.distinct(
             'original_domain',
             {'timestamp': {'$gt': _windowl_date, '$lt': _windowr_date}}

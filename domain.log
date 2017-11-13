@@ -1,0 +1,33 @@
+Sat, 04 Nov 2017 09:05:02 monitor_mt.py[line:80] INFO Task Started.
+Sat, 04 Nov 2017 10:51:25 monitor_mt.py[line:82] INFO Task Completed.
+Sat, 04 Nov 2017 10:51:25 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Sun, 05 Nov 2017 09:51:26 monitor_mt.py[line:80] INFO Task Started.
+Sun, 05 Nov 2017 11:35:40 monitor_mt.py[line:82] INFO Task Completed.
+Sun, 05 Nov 2017 11:35:40 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Mon, 06 Nov 2017 09:35:41 monitor_mt.py[line:80] INFO Task Started.
+Mon, 06 Nov 2017 11:19:50 monitor_mt.py[line:82] INFO Task Completed.
+Mon, 06 Nov 2017 11:19:50 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Tue, 07 Nov 2017 09:19:51 monitor_mt.py[line:80] INFO Task Started.
+Tue, 07 Nov 2017 11:04:58 monitor_mt.py[line:82] INFO Task Completed.
+Tue, 07 Nov 2017 11:04:58 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Wed, 08 Nov 2017 09:04:59 monitor_mt.py[line:80] INFO Task Started.
+Wed, 08 Nov 2017 10:53:02 monitor_mt.py[line:82] INFO Task Completed.
+Wed, 08 Nov 2017 10:53:02 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Wed, 08 Nov 2017 16:37:34 monitor-cisco.py[line:60] INFO Task: monitor-cisco Started.
+Thu, 09 Nov 2017 08:47:08 monitor-cisco.py[line:62] INFO Task: monitor-cisco Completed.
+Thu, 09 Nov 2017 08:47:09 monitor-cisco.py[line:156] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Thu, 09 Nov 2017 09:53:04 monitor_mt.py[line:80] INFO Task Started.
+Thu, 09 Nov 2017 11:40:25 monitor_mt.py[line:82] INFO Task Completed.
+Thu, 09 Nov 2017 11:40:25 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Fri, 10 Nov 2017 09:40:27 monitor_mt.py[line:80] INFO Task Started.
+Fri, 10 Nov 2017 11:27:35 monitor_mt.py[line:82] INFO Task Completed.
+Fri, 10 Nov 2017 11:27:35 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Sat, 11 Nov 2017 09:27:36 monitor_mt.py[line:80] INFO Task Started.
+Sat, 11 Nov 2017 11:14:47 monitor_mt.py[line:82] INFO Task Completed.
+Sat, 11 Nov 2017 11:14:47 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Sun, 12 Nov 2017 09:14:48 monitor_mt.py[line:80] INFO Task Started.
+Sun, 12 Nov 2017 10:55:54 monitor_mt.py[line:82] INFO Task Completed.
+Sun, 12 Nov 2017 10:55:54 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Mon, 13 Nov 2017 09:55:56 monitor_mt.py[line:80] INFO Task Started.
+Mon, 13 Nov 2017 11:39:58 monitor_mt.py[line:82] INFO Task Completed.
+Mon, 13 Nov 2017 11:39:59 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
