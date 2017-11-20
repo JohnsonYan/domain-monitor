@@ -193,3 +193,93 @@ Mon, 13 Nov 2017 13:28:15 stats.py[line:209] INFO 		_id [5a092d6fc3c0ec01dd43321
 Mon, 13 Nov 2017 13:28:15 stats.py[line:209] INFO 		distinct_window_increment [81602]
 Mon, 13 Nov 2017 13:28:15 stats.py[line:209] INFO 		distinct_tags_inactive_number [54254]
 Mon, 13 Nov 2017 13:28:15 stats.py[line:211] INFO Export to Excel:"report.xls".
+Tue, 14 Nov 2017 13:29:17 stats.py[line:205] INFO DDNS detect.
+Tue, 14 Nov 2017 13:29:25 stats.py[line:207] INFO Report generation.
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		distinct_tags_active_number [28409]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		distinct_domain_number [81602]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		timestamp [2017-11-14 13:29:17]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		distinct_tags_blocked_number [192]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		distinct_tags_sinkhole_number [57]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		window_increment [81602]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		domain_number [1142428]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		distinct_domain_daily_increment [0]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		domain_daily_increment [81602]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		_id [5a0a7f35c3c0ec01dd43321c]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		distinct_window_increment [81602]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:209] INFO 		distinct_tags_inactive_number [54536]
+Tue, 14 Nov 2017 13:29:25 stats.py[line:211] INFO Export to Excel:"report.xls".
+Wed, 15 Nov 2017 13:30:27 stats.py[line:205] INFO DDNS detect.
+Wed, 15 Nov 2017 13:30:36 stats.py[line:207] INFO Report generation.
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		distinct_tags_active_number [28422]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		distinct_domain_number [81602]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		timestamp [2017-11-15 13:30:27]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		distinct_tags_blocked_number [193]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		distinct_tags_sinkhole_number [57]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		window_increment [81602]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		domain_number [1224030]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		distinct_domain_daily_increment [0]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		domain_daily_increment [81602]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		_id [5a0bd0fcc3c0ec01dd43321d]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		distinct_window_increment [81602]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:209] INFO 		distinct_tags_inactive_number [54599]
+Wed, 15 Nov 2017 13:30:36 stats.py[line:211] INFO Export to Excel:"report.xls".
+Thu, 16 Nov 2017 13:31:37 stats.py[line:205] INFO DDNS detect.
+Thu, 16 Nov 2017 13:31:47 stats.py[line:207] INFO Report generation.
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		distinct_tags_active_number [28443]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		distinct_domain_number [81602]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		timestamp [2017-11-16 13:31:37]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		distinct_tags_blocked_number [193]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		distinct_tags_sinkhole_number [57]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		window_increment [81602]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		domain_number [1305632]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		distinct_domain_daily_increment [0]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		domain_daily_increment [81602]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		_id [5a0d22c3c3c0ec01dd43321e]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		distinct_window_increment [81602]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:209] INFO 		distinct_tags_inactive_number [54647]
+Thu, 16 Nov 2017 13:31:47 stats.py[line:211] INFO Export to Excel:"report.xls".
+Fri, 17 Nov 2017 13:32:47 stats.py[line:205] INFO DDNS detect.
+Fri, 17 Nov 2017 13:32:57 stats.py[line:207] INFO Report generation.
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		distinct_tags_active_number [28456]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		distinct_domain_number [81602]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		timestamp [2017-11-17 13:32:47]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		distinct_tags_blocked_number [193]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		distinct_tags_sinkhole_number [58]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		window_increment [81602]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		domain_number [1387234]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		distinct_domain_daily_increment [0]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		domain_daily_increment [81602]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		_id [5a0e7489c3c0ec01dd43321f]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		distinct_window_increment [81602]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:209] INFO 		distinct_tags_inactive_number [54695]
+Fri, 17 Nov 2017 13:32:57 stats.py[line:211] INFO Export to Excel:"report.xls".
+Sat, 18 Nov 2017 13:33:59 stats.py[line:205] INFO DDNS detect.
+Sat, 18 Nov 2017 13:34:09 stats.py[line:207] INFO Report generation.
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		distinct_tags_active_number [28468]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		distinct_domain_number [81602]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		timestamp [2017-11-18 13:33:59]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		distinct_tags_blocked_number [194]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		distinct_tags_sinkhole_number [58]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		window_increment [81602]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		domain_number [1468836]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		distinct_domain_daily_increment [0]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		domain_daily_increment [81602]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		_id [5a0fc651c3c0ec01dd433220]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		distinct_window_increment [81602]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:209] INFO 		distinct_tags_inactive_number [54844]
+Sat, 18 Nov 2017 13:34:09 stats.py[line:211] INFO Export to Excel:"report.xls".
+Sun, 19 Nov 2017 13:35:11 stats.py[line:205] INFO DDNS detect.
+Sun, 19 Nov 2017 13:35:22 stats.py[line:207] INFO Report generation.
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		distinct_tags_active_number [28471]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		distinct_domain_number [81602]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		timestamp [2017-11-19 13:35:11]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		distinct_tags_blocked_number [195]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		distinct_tags_sinkhole_number [58]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		window_increment [81602]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		domain_number [1550438]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		distinct_domain_daily_increment [0]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		domain_daily_increment [81602]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		_id [5a11181ac3c0ec01dd433221]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		distinct_window_increment [81602]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		distinct_tags_inactive_number [54949]
+Sun, 19 Nov 2017 13:35:22 stats.py[line:211] INFO Export to Excel:"report.xls".

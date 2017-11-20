@@ -31,3 +31,25 @@ Sun, 12 Nov 2017 10:55:54 monitor_mt.py[line:176] INFO Clean outdated(60 days ag
 Mon, 13 Nov 2017 09:55:56 monitor_mt.py[line:80] INFO Task Started.
 Mon, 13 Nov 2017 11:39:58 monitor_mt.py[line:82] INFO Task Completed.
 Mon, 13 Nov 2017 11:39:59 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Tue, 14 Nov 2017 09:40:00 monitor_mt.py[line:80] INFO Task Started.
+Tue, 14 Nov 2017 11:41:11 monitor_mt.py[line:82] INFO Task Completed.
+Tue, 14 Nov 2017 11:41:12 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Wed, 15 Nov 2017 09:41:13 monitor_mt.py[line:80] INFO Task Started.
+Wed, 15 Nov 2017 11:25:43 monitor_mt.py[line:82] INFO Task Completed.
+Wed, 15 Nov 2017 11:25:44 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Thu, 16 Nov 2017 09:25:44 monitor_mt.py[line:80] INFO Task Started.
+Thu, 16 Nov 2017 11:09:11 monitor_mt.py[line:82] INFO Task Completed.
+Thu, 16 Nov 2017 11:09:11 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Fri, 17 Nov 2017 09:09:13 monitor_mt.py[line:80] INFO Task Started.
+Fri, 17 Nov 2017 10:54:07 monitor_mt.py[line:82] INFO Task Completed.
+Fri, 17 Nov 2017 10:54:07 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Sat, 18 Nov 2017 09:54:08 monitor_mt.py[line:80] INFO Task Started.
+Sat, 18 Nov 2017 11:47:03 monitor_mt.py[line:82] INFO Task Completed.
+Sat, 18 Nov 2017 11:47:04 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Sun, 19 Nov 2017 09:47:05 monitor_mt.py[line:80] INFO Task Started.
+Sun, 19 Nov 2017 11:33:05 monitor_mt.py[line:82] INFO Task Completed.
+Sun, 19 Nov 2017 11:33:05 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Mon, 20 Nov 2017 09:33:06 monitor_mt.py[line:80] INFO Task Started.
+Mon, 20 Nov 2017 11:22:16 monitor_mt.py[line:82] INFO Task Completed.
+Mon, 20 Nov 2017 11:22:17 monitor_mt.py[line:176] INFO Clean outdated(60 days ago) domains [deleted_count: 0]
+Mon, 20 Nov 2017 11:47:09 domain_monitor.py[line:68] INFO Task Started.
