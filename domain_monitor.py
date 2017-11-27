@@ -125,7 +125,6 @@ class DomainMonitor(threading.Thread):
 
         return ip
 
-    # TODO:需修改一些tags
     def set_tag(self, ips):
         """
         为域名添加标记
