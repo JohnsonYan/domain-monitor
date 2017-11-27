@@ -10,18 +10,14 @@ import xlwt
 class Stats(object):
     def __init__(self):
         # schedule config
-        self.time_list = [13]
+        self.time_list = 11
         # logging config
         logging.config.fileConfig('logging.conf')
         self.log = logging.getLogger('report')
         # mongodb config
-        self.host = 'localhost'
-        self.port = 27017
-        self.client = pymongo.MongoClient(self.host, self.port)
-        self.db = self.client['virustotal']
-        self.domain = self.db['domain']
-        self.report = self.db['report']
-        self.ddns = self.db['ddns']
+        self.domain = pymongo.MongoClient('localhost', 27017)['virustotal']['domain']
+        self.report = pymongo.MongoClient('localhost', 27017)['virustotal']['report']
+        self.ddns = pymongo.MongoClient('localhost', 27017)['virustotal']['ddns']
         # report document
         self.daily_report = {}
 
@@ -35,43 +31,39 @@ class Stats(object):
 
         # 域名数量计算
         self.daily_report['domain_number'] = self.domain.find({}).count()
-        self.daily_report['distinct_domain_number'] = len(self.domain.distinct('original_domain'))
 
-        # 去重后标签统计
-        self.daily_report['distinct_tags_sinkhole_number'] = len(self.domain.distinct(
-            'original_domain', {'tags': {'$in': ['sinkhole']}}))
-        self.daily_report['distinct_tags_blocked_number'] = len(self.domain.distinct(
-            'original_domain', {'tags': {'$in': ['blocked']}}))
-        self.daily_report['distinct_tags_active_number'] = len(self.domain.distinct(
-            'original_domain', {'tags': {'$in': ['active']}}))
-        self.daily_report['distinct_tags_inactive_number'] = len(self.domain.distinct(
-            'original_domain', {'tags': {'$in': ['inactive']}}))
+        # 标签统计
+        self.daily_report['tags_sinkhole_number'] = self.domain.find({'tags': 'sinkhole'}).count()
+        self.daily_report['tags_active_number'] = self.domain.find({'tags': 'active'}).count()
+        self.daily_report['tags_inactive_number'] = self.domain.find({'tags': 'inactive'}).count()
 
         # 日增量计算
         _now = datetime.datetime.now()
         _today = str(_now).split()[0]
         _tomorrow = str(_now + datetime.timedelta(days=1)).split()[0]
+        _yestoday = str(_now - datetime.timedelta(days=1)).split()[0]
+        # 今天的domain数量 - 昨天domain数量 = 日增量
+        yestoday_domain = self.report.find_one(
+            {'timestamp': {'$gt': _yestoday, '$lt': _today}}
+        )
 
-        self.daily_report['domain_daily_increment'] = self.domain.find(
-            {'timestamp': {'$gt': _today, '$lt': _tomorrow}}
-        ).count()
-        self.daily_report['distinct_domain_daily_increment'] = len(self.domain.distinct(
-            'original_domain',
-            {'timestamp': {'$gt': _today, '$lt': _tomorrow}}
-        )) - self.daily_report['distinct_domain_number']
+        if yestoday_domain is not None:
+            self.daily_report['domain_daily_increment'] = self.domain.find(
+                {'timestamp': {'$gt': _today, '$lt': _tomorrow}}
+            ).count() - yestoday_domain['domain_number']
+        else:
+            self.daily_report['domain_daily_increment'] = 0
 
         # 窗口期增量计算
         _windowl_date = str(_now - datetime.timedelta(days=6)).split()[0]
-        _windowr_date = str(_now + datetime.timedelta(days=1)).split()[0]
-
-        self.daily_report['window_increment'] = len(self.domain.distinct(
-            'original_domain',
-            {'timestamp': {'$gt': _windowl_date, '$lt': _windowr_date}}
-        ))
-        self.daily_report['distinct_window_increment'] = len(self.domain.distinct(
-            'original_domain',
-            {'timestamp': {'$gt': _windowl_date, '$lt': _windowr_date}}
-        ))
+        _windowr_date = str(_now - datetime.timedelta(days=5)).split()[0]
+        _window_domain = self.report.find_one({'timestamp': {'$gt': _windowl_date, '$lt': _windowr_date}})
+        if _window_domain is not None:
+            self.daily_report['window_increment'] = self.domain.find(
+                {'timestamp': {'$gt': _today, '$lt': _tomorrow}}
+            ).count() - _window_domain['domain_number']
+        else:
+            self.daily_report['window_increment'] = 0
 
     def generate_report(self):
         """
@@ -118,25 +110,23 @@ class Stats(object):
         _today = str(_now).split()[0]
         _tomorrow = str(_now + datetime.timedelta(days=1)).split()[0]
         # 获取到去重后的今天解析过的域名列表
-        domains = self.domain.distinct('original_domain', {'timestamp': {'$gt': _today, '$lt': _tomorrow}})
+        domains = self.domain.distinct('original_domain')
         # 统计今天的结果，将今天的domain绑定的ip存入数据库
         for _domain in domains:
-            data = self.domain.find_one({'original_domain': _domain, 'timestamp': {'$gt': _today, '$lt': _tomorrow}})
+            data = self.domain.find_one({'original_domain': _domain})
             # 这里我们只关注active的主机
             if dict(data).has_key('iplist'):
-                iplist = []
                 d = data['iplist']
                 for ip in d:
-                    iplist.append(ip['ip'])
-                self.ddns.update({'original_domain': _domain},
-                                 {'$addToSet': {'ipstats': {'timestamp': _today, 'iplist': iplist}},
-                                  '$set': {'original_domain': _domain}},
-                                 upsert=True)
+                    self.ddns.update({'original_domain': _domain},
+                                     {'$addToSet': {'ipstats': {'timestamp': ip['timestamp'], 'iplist': ip['ip']}},
+                                      '$set': {'original_domain': _domain}}, upsert=True)
+
         # 检测domain绑定的ip变化的情况
         for _domain in domains:
             md5_list = []
             data = self.ddns.find_one({'original_domain': _domain})
-            #print _domain
+            # print _domain
             if data is not None:
                 # 下面循环中每次循环获取一天的iplist,得到每天ip的md5
                 for i in data['ipstats']:
@@ -153,17 +143,13 @@ class Stats(object):
     def export2excel(self):
         keys = ['timestamp',
                 'domain_number',
-                'distinct_domain_number',
                 'domain_daily_increment',
-                'distinct_domain_daily_increment',
                 'window_increment',
-                'distinct_window_increment',
-                'distinct_tags_active_number',
-                'distinct_tags_inactive_number',
-                'distinct_tags_sinkhole_number',
-                'distinct_tags_blocked_number']
+                'tags_active_number',
+                'tags_inactive_number',
+                'tags_sinkhole_number']
         _now = datetime.datetime.now()
-        #_today = str(_now).split()[0]
+        # _today = str(_now).split()[0]
         _tomorrow = str(_now + datetime.timedelta(days=1)).split()[0]
         _before = str(_now - datetime.timedelta(days=6)).split()[0]
 
@@ -171,13 +157,9 @@ class Stats(object):
         worksheet = workbook.add_sheet('domain', cell_overwrite_ok=True)
 
         data = self.report.find({'timestamp': {'$gt': _before, '$lt': _tomorrow}})
-
         row = 0
         col = 0
         for d in data:
-            print str(d)
-            print '*'*10
-            print d['distinct_tags_active_number']
             if row == 0:
                 for key in keys:
                     worksheet.write(row, col, key)
@@ -198,17 +180,17 @@ class Stats(object):
         :return:
         """
         # _date = str(datetime.datetime.now()).split()[0]
-        _time = str(datetime.datetime.now()).split()[1]
+        _time = datetime.datetime.now()
 
-        if int(_time.split(':')[0]) in self.time_list:
-            self.ddns_detect()
-            self.log.info('DDNS detect.')
+        if _time.hour == self.time_list:
             self.generate_report()
             self.log.info('Report generation.')
             for key, value in self.daily_report.items():
                 self.log.info('\t\t%s [%s]' % (key, value))
             self.export2excel()
             self.log.info('Export to Excel:"report.xls".')
+            self.ddns_detect()
+            self.log.info('DDNS detect.')
 
 
 if __name__ == '__main__':
@@ -220,4 +202,5 @@ if __name__ == '__main__':
             s.schedule()
             time.sleep(60 * 60)
         except Exception as msg:
-            print msg
+            print msg.message, msg.args
+            time.sleep(60 * 60)

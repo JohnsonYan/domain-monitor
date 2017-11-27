@@ -7,6 +7,7 @@ import threading
 import logging.config
 import pymongo
 import configparser
+import ipaddr
 
 # config init
 cfg = configparser.ConfigParser()
@@ -23,31 +24,36 @@ class MultiThread(object):
         # queue config
         self._queue = Queue.Queue()
         # threads config
-        self.thread_count = 4
+        self.thread_count = cfg.getint('common', 'threads_num')
         self.count = 0
         # filename
         self.filename = cfg.get('common', 'filename')
+        # domain resource
+        self.domain = pymongo.MongoClient(cfg.get('common', 'host'),
+                                          cfg.getint('common', 'port'))[cfg.get('common', 'db')][cfg.get('common', 'collection')]
 
     def in_queue_from_file(self):
         # read each line from file
         # translate each domain into ip
         with open(self.filename, 'r') as f:
             for line in f:
-                self._queue.put(line.strip())
+                self._queue.put([line.strip(), ''])
                 # print '[Domain in Queue: %d] [Put %s into Queue]' % (self._queue.qsize(), line.strip())
 
-    # def in_queue(self):
-    #     data = self.hashmetadata.find({'waldomain': {'$not': {'$size': 0}}}).limit(100)  # limit for test
-    #     self.count = 0
-    #     for d in data:
-    #         domains = d['waldomain']
-    #         for domain in domains:
-    #             self.count += 1
-    #             self._queue.put(domain)
+    def in_queue(self):
+        # batch_size，小一些防止cursor失效
+        data = self.domain.find().batch_size(10)
+        self.count = 0
+        for d in data:
+            domains = d['domains']
+            self.count += 1
+            # print 'put [%d]family: %s in queue' % (self.count, d['family'])
+            for domain in domains:
+                self._queue.put([domain['domain'], d['family']])
 
     def start_monitor(self):
-        # self.in_queue()
-        self.in_queue_from_file()
+        self.in_queue()
+        # self.in_queue_from_file()
         threads = []
         for i in range(self.thread_count):
             threads.append(DomainMonitor(self._queue))
@@ -94,7 +100,8 @@ class DomainMonitor(threading.Thread):
     def run(self):
         while not self._queue.empty():
             domain = self._queue.get_nowait()
-            self.monitor(domain)
+            # print 'domain: %s , family: %s' % (domain[0], domain[1])
+            self.monitor(domain[0], domain[1])
 
     def domain2ip(self, domain):
         """
@@ -113,32 +120,26 @@ class DomainMonitor(threading.Thread):
             else:
                 self.document['tags'] = ['%s: %s' % (str(msg.errno), msg.strerror)]
                 # print msg.errno,msg.strerror
+        except UnicodeEncodeError as msg:
+            self.document['tags'] = ['DomainUnicodeEncodeError']
 
         return ip
 
-    # 判断内网IP
-    def is_internal_ip(self, ip):
-        def ip_into_int(_ip):
-            return reduce(lambda x, y: (x << 8) + y, map(int, _ip.split('.')))
-        ip = ip_into_int(ip)
-        net_a = ip_into_int('10.255.255.255') >> 24
-        net_b = ip_into_int('172.31.255.255') >> 20
-        net_c = ip_into_int('192.168.255.255') >> 16
-        return ip >> 24 == net_a or ip >> 20 == net_b or ip >> 16 == net_c
-
-    #TODO:需修改一些tags
+    # TODO:需修改一些tags
     def set_tag(self, ips):
         """
         为域名添加标记
         :return:
         """
         for ip in ips:
-            # 如果解析为内网ip，则认为该域名被沉洞
-            if self.is_internal_ip(ip):
+            # 如果解析为下述六种之一，则认为该域名被沉洞
+            check = ipaddr.IPv4Address(ip)
+            if (check.is_link_local or check.is_loopback
+                    or check.is_private or check.is_unspecified):
                 self.document['tags'].append('sinkhole')
                 break
 
-    def monitor(self, domain):
+    def monitor(self, domain, family):
         """
         域名监控的主函数，包括数据库的存取，域名解析，打标签等功能
         :return:
@@ -148,6 +149,7 @@ class DomainMonitor(threading.Thread):
         ip = self.domain2ip(domain)
         self.document['original_domain'] = domain
         self.document['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+        self.document['family'] = family
         if len(ip) > 0:
             self.document['parsed_domain'] = ip[0]
             self.document['aliaslist'] = ip[1]
@@ -161,7 +163,9 @@ class DomainMonitor(threading.Thread):
             # 存入数据库-Collection: domain
             self.domain.update({'original_domain': domain},
                                {'$set': self.document,
-                                '$addToSet': {'iplist': {'ip': ips, 'timestamp': time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))}}
+                                '$addToSet': {'iplist': {'ip': ips, 'timestamp': time.strftime('%Y-%m-%d %H:%M:%S',
+                                                                                               time.localtime(
+                                                                                                   time.time()))}}
                                 },
                                upsert=True)
         else:

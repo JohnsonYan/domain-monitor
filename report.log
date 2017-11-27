@@ -283,3 +283,565 @@ Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		_id [5a11181ac3c0ec01dd43322
 Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		distinct_window_increment [81602]
 Sun, 19 Nov 2017 13:35:22 stats.py[line:209] INFO 		distinct_tags_inactive_number [54949]
 Sun, 19 Nov 2017 13:35:22 stats.py[line:211] INFO Export to Excel:"report.xls".
+Fri, 24 Nov 2017 10:35:35 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 10:35:36 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 10:35:36 stats.py[line:184] INFO 		tags_active_number [27672]
+Fri, 24 Nov 2017 10:35:36 stats.py[line:184] INFO 		tags_inactive_number [53917]
+Fri, 24 Nov 2017 10:35:36 stats.py[line:184] INFO 		timestamp [2017-11-24 10:35:35]
+Fri, 24 Nov 2017 10:35:36 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 10:35:36 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 10:35:36 stats.py[line:184] INFO 		domain_daily_increment [-81602]
+Fri, 24 Nov 2017 10:35:36 stats.py[line:184] INFO 		_id [5a178578c3c0ec1a691158b0]
+Fri, 24 Nov 2017 10:35:36 stats.py[line:184] INFO 		tags_sinkhole_number [1566]
+Fri, 24 Nov 2017 10:36:53 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 10:36:53 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 10:36:53 stats.py[line:184] INFO 		tags_active_number [27672]
+Fri, 24 Nov 2017 10:36:53 stats.py[line:184] INFO 		tags_inactive_number [53917]
+Fri, 24 Nov 2017 10:36:53 stats.py[line:184] INFO 		timestamp [2017-11-24 10:36:53]
+Fri, 24 Nov 2017 10:36:53 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 10:36:53 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 10:36:53 stats.py[line:184] INFO 		domain_daily_increment [-81602]
+Fri, 24 Nov 2017 10:36:53 stats.py[line:184] INFO 		_id [5a1785c5c3c0ec1a691158b1]
+Fri, 24 Nov 2017 10:36:53 stats.py[line:184] INFO 		tags_sinkhole_number [1566]
+Fri, 24 Nov 2017 10:38:10 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 10:38:10 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 10:38:10 stats.py[line:184] INFO 		tags_active_number [27672]
+Fri, 24 Nov 2017 10:38:10 stats.py[line:184] INFO 		tags_inactive_number [53917]
+Fri, 24 Nov 2017 10:38:10 stats.py[line:184] INFO 		timestamp [2017-11-24 10:38:10]
+Fri, 24 Nov 2017 10:38:10 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 10:38:10 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 10:38:10 stats.py[line:184] INFO 		domain_daily_increment [-81602]
+Fri, 24 Nov 2017 10:38:10 stats.py[line:184] INFO 		_id [5a178612c3c0ec1a691158b2]
+Fri, 24 Nov 2017 10:38:10 stats.py[line:184] INFO 		tags_sinkhole_number [1566]
+Fri, 24 Nov 2017 14:45:33 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:45:33 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:45:33 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:45:33 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:45:33 stats.py[line:184] INFO 		timestamp [2017-11-24 14:45:33]
+Fri, 24 Nov 2017 14:45:33 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:45:33 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:45:33 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:45:33 stats.py[line:184] INFO 		_id [5a17c00dc3c0ec1af630ddff]
+Fri, 24 Nov 2017 14:45:33 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 14:46:57 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:46:58 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:46:58 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:46:58 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:46:58 stats.py[line:184] INFO 		timestamp [2017-11-24 14:46:57]
+Fri, 24 Nov 2017 14:46:58 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:46:58 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:46:58 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:46:58 stats.py[line:184] INFO 		_id [5a17c062c3c0ec1af630de00]
+Fri, 24 Nov 2017 14:46:58 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 14:48:22 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:48:23 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:48:23 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:48:23 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:48:23 stats.py[line:184] INFO 		timestamp [2017-11-24 14:48:22]
+Fri, 24 Nov 2017 14:48:23 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:48:23 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:48:23 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:48:23 stats.py[line:184] INFO 		_id [5a17c0b7c3c0ec1af630de01]
+Fri, 24 Nov 2017 14:48:23 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 14:49:47 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:49:47 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:49:47 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:49:47 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:49:47 stats.py[line:184] INFO 		timestamp [2017-11-24 14:49:47]
+Fri, 24 Nov 2017 14:49:47 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:49:47 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:49:47 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:49:47 stats.py[line:184] INFO 		_id [5a17c10bc3c0ec1af630de02]
+Fri, 24 Nov 2017 14:49:47 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 14:51:12 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:51:12 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:51:12 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:51:12 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:51:12 stats.py[line:184] INFO 		timestamp [2017-11-24 14:51:12]
+Fri, 24 Nov 2017 14:51:12 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:51:12 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:51:12 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:51:12 stats.py[line:184] INFO 		_id [5a17c160c3c0ec1af630de03]
+Fri, 24 Nov 2017 14:51:12 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 14:52:37 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:52:37 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:52:37 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:52:37 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:52:37 stats.py[line:184] INFO 		timestamp [2017-11-24 14:52:37]
+Fri, 24 Nov 2017 14:52:37 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:52:37 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:52:37 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:52:37 stats.py[line:184] INFO 		_id [5a17c1b5c3c0ec1af630de04]
+Fri, 24 Nov 2017 14:52:37 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 14:54:01 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:54:02 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:54:02 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:54:02 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:54:02 stats.py[line:184] INFO 		timestamp [2017-11-24 14:54:01]
+Fri, 24 Nov 2017 14:54:02 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:54:02 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:54:02 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:54:02 stats.py[line:184] INFO 		_id [5a17c20ac3c0ec1af630de05]
+Fri, 24 Nov 2017 14:54:02 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 14:55:26 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:55:27 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:55:27 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:55:27 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:55:27 stats.py[line:184] INFO 		timestamp [2017-11-24 14:55:26]
+Fri, 24 Nov 2017 14:55:27 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:55:27 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:55:27 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:55:27 stats.py[line:184] INFO 		_id [5a17c25fc3c0ec1af630de06]
+Fri, 24 Nov 2017 14:55:27 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 14:56:51 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:56:52 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:56:52 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:56:52 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:56:52 stats.py[line:184] INFO 		timestamp [2017-11-24 14:56:51]
+Fri, 24 Nov 2017 14:56:52 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:56:52 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:56:52 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:56:52 stats.py[line:184] INFO 		_id [5a17c2b4c3c0ec1af630de07]
+Fri, 24 Nov 2017 14:56:52 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 14:58:16 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:58:16 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:58:16 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:58:16 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:58:16 stats.py[line:184] INFO 		timestamp [2017-11-24 14:58:16]
+Fri, 24 Nov 2017 14:58:16 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:58:16 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:58:16 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:58:16 stats.py[line:184] INFO 		_id [5a17c308c3c0ec1af630de08]
+Fri, 24 Nov 2017 14:58:16 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 14:59:41 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 14:59:41 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 14:59:41 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 14:59:41 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 14:59:41 stats.py[line:184] INFO 		timestamp [2017-11-24 14:59:41]
+Fri, 24 Nov 2017 14:59:41 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 14:59:41 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 14:59:41 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 14:59:41 stats.py[line:184] INFO 		_id [5a17c35dc3c0ec1af630de09]
+Fri, 24 Nov 2017 14:59:41 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Fri, 24 Nov 2017 15:01:05 stats.py[line:180] INFO DDNS detect.
+Fri, 24 Nov 2017 15:01:06 stats.py[line:182] INFO Report generation.
+Fri, 24 Nov 2017 15:01:06 stats.py[line:184] INFO 		tags_active_number [27784]
+Fri, 24 Nov 2017 15:01:06 stats.py[line:184] INFO 		tags_inactive_number [53805]
+Fri, 24 Nov 2017 15:01:06 stats.py[line:184] INFO 		timestamp [2017-11-24 15:01:05]
+Fri, 24 Nov 2017 15:01:06 stats.py[line:184] INFO 		window_increment [81602]
+Fri, 24 Nov 2017 15:01:06 stats.py[line:184] INFO 		domain_number [81602]
+Fri, 24 Nov 2017 15:01:06 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Fri, 24 Nov 2017 15:01:06 stats.py[line:184] INFO 		_id [5a17c3b2c3c0ec1af630de0a]
+Fri, 24 Nov 2017 15:01:06 stats.py[line:184] INFO 		tags_sinkhole_number [1548]
+Sat, 25 Nov 2017 14:02:41 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:02:42 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:02:42 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:02:42 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:02:42 stats.py[line:184] INFO 		timestamp [2017-11-25 14:02:41]
+Sat, 25 Nov 2017 14:02:42 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:02:42 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:02:42 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:02:42 stats.py[line:184] INFO 		_id [5a190782c3c0ec1af630de0b]
+Sat, 25 Nov 2017 14:02:42 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:04:13 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:04:13 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:04:13 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:04:13 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:04:13 stats.py[line:184] INFO 		timestamp [2017-11-25 14:04:13]
+Sat, 25 Nov 2017 14:04:13 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:04:13 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:04:13 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:04:13 stats.py[line:184] INFO 		_id [5a1907ddc3c0ec1af630de0c]
+Sat, 25 Nov 2017 14:04:13 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:05:45 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:05:45 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:05:45 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:05:45 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:05:45 stats.py[line:184] INFO 		timestamp [2017-11-25 14:05:45]
+Sat, 25 Nov 2017 14:05:45 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:05:45 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:05:45 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:05:45 stats.py[line:184] INFO 		_id [5a190839c3c0ec1af630de0d]
+Sat, 25 Nov 2017 14:05:45 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:07:16 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:07:17 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:07:17 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:07:17 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:07:17 stats.py[line:184] INFO 		timestamp [2017-11-25 14:07:16]
+Sat, 25 Nov 2017 14:07:17 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:07:17 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:07:17 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:07:17 stats.py[line:184] INFO 		_id [5a190895c3c0ec1af630de0e]
+Sat, 25 Nov 2017 14:07:17 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:08:48 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:08:48 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:08:48 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:08:48 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:08:48 stats.py[line:184] INFO 		timestamp [2017-11-25 14:08:48]
+Sat, 25 Nov 2017 14:08:48 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:08:48 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:08:48 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:08:48 stats.py[line:184] INFO 		_id [5a1908f0c3c0ec1af630de0f]
+Sat, 25 Nov 2017 14:08:48 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:10:19 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:10:20 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:10:20 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:10:20 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:10:20 stats.py[line:184] INFO 		timestamp [2017-11-25 14:10:19]
+Sat, 25 Nov 2017 14:10:20 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:10:20 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:10:20 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:10:20 stats.py[line:184] INFO 		_id [5a19094cc3c0ec1af630de10]
+Sat, 25 Nov 2017 14:10:20 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:11:51 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:11:51 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:11:51 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:11:51 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:11:51 stats.py[line:184] INFO 		timestamp [2017-11-25 14:11:51]
+Sat, 25 Nov 2017 14:11:51 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:11:51 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:11:51 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:11:51 stats.py[line:184] INFO 		_id [5a1909a7c3c0ec1af630de11]
+Sat, 25 Nov 2017 14:11:51 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:13:22 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:13:22 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:13:22 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:13:22 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:13:22 stats.py[line:184] INFO 		timestamp [2017-11-25 14:13:22]
+Sat, 25 Nov 2017 14:13:22 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:13:22 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:13:22 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:13:22 stats.py[line:184] INFO 		_id [5a190a02c3c0ec1af630de12]
+Sat, 25 Nov 2017 14:13:22 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:14:54 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:14:54 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:14:54 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:14:54 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:14:54 stats.py[line:184] INFO 		timestamp [2017-11-25 14:14:54]
+Sat, 25 Nov 2017 14:14:54 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:14:54 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:14:54 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:14:54 stats.py[line:184] INFO 		_id [5a190a5ec3c0ec1af630de13]
+Sat, 25 Nov 2017 14:14:54 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:16:26 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:16:26 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:16:26 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:16:26 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:16:26 stats.py[line:184] INFO 		timestamp [2017-11-25 14:16:26]
+Sat, 25 Nov 2017 14:16:26 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:16:26 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:16:26 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:16:26 stats.py[line:184] INFO 		_id [5a190abac3c0ec1af630de14]
+Sat, 25 Nov 2017 14:16:26 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:17:58 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:17:58 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:17:58 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:17:58 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:17:58 stats.py[line:184] INFO 		timestamp [2017-11-25 14:17:58]
+Sat, 25 Nov 2017 14:17:58 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:17:58 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:17:58 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:17:58 stats.py[line:184] INFO 		_id [5a190b16c3c0ec1af630de15]
+Sat, 25 Nov 2017 14:17:58 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:19:30 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:19:30 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:19:30 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:19:30 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:19:30 stats.py[line:184] INFO 		timestamp [2017-11-25 14:19:30]
+Sat, 25 Nov 2017 14:19:30 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:19:30 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:19:30 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:19:30 stats.py[line:184] INFO 		_id [5a190b72c3c0ec1af630de16]
+Sat, 25 Nov 2017 14:19:30 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:21:02 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:21:02 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:21:02 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:21:02 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:21:02 stats.py[line:184] INFO 		timestamp [2017-11-25 14:21:02]
+Sat, 25 Nov 2017 14:21:02 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:21:02 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:21:02 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:21:02 stats.py[line:184] INFO 		_id [5a190bcec3c0ec1af630de17]
+Sat, 25 Nov 2017 14:21:02 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:22:33 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:22:33 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:22:33 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:22:33 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:22:33 stats.py[line:184] INFO 		timestamp [2017-11-25 14:22:33]
+Sat, 25 Nov 2017 14:22:33 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:22:33 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:22:33 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:22:33 stats.py[line:184] INFO 		_id [5a190c29c3c0ec1af630de18]
+Sat, 25 Nov 2017 14:22:33 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:24:05 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:24:05 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:24:05 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:24:05 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:24:05 stats.py[line:184] INFO 		timestamp [2017-11-25 14:24:05]
+Sat, 25 Nov 2017 14:24:05 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:24:05 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:24:05 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:24:05 stats.py[line:184] INFO 		_id [5a190c85c3c0ec1af630de19]
+Sat, 25 Nov 2017 14:24:05 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:25:37 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:25:37 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:25:37 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:25:37 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:25:37 stats.py[line:184] INFO 		timestamp [2017-11-25 14:25:37]
+Sat, 25 Nov 2017 14:25:37 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:25:37 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:25:37 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:25:37 stats.py[line:184] INFO 		_id [5a190ce1c3c0ec1af630de1a]
+Sat, 25 Nov 2017 14:25:37 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:27:09 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:27:09 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:27:09 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:27:09 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:27:09 stats.py[line:184] INFO 		timestamp [2017-11-25 14:27:09]
+Sat, 25 Nov 2017 14:27:09 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:27:09 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:27:09 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:27:09 stats.py[line:184] INFO 		_id [5a190d3dc3c0ec1af630de1b]
+Sat, 25 Nov 2017 14:27:09 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:28:40 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:28:41 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:28:41 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:28:41 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:28:41 stats.py[line:184] INFO 		timestamp [2017-11-25 14:28:40]
+Sat, 25 Nov 2017 14:28:41 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:28:41 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:28:41 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:28:41 stats.py[line:184] INFO 		_id [5a190d99c3c0ec1af630de1c]
+Sat, 25 Nov 2017 14:28:41 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:30:12 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:30:12 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:30:12 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:30:12 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:30:12 stats.py[line:184] INFO 		timestamp [2017-11-25 14:30:12]
+Sat, 25 Nov 2017 14:30:12 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:30:12 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:30:12 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:30:12 stats.py[line:184] INFO 		_id [5a190df4c3c0ec1af630de1d]
+Sat, 25 Nov 2017 14:30:12 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:31:44 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:31:45 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:31:45 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:31:45 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:31:45 stats.py[line:184] INFO 		timestamp [2017-11-25 14:31:44]
+Sat, 25 Nov 2017 14:31:45 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:31:45 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:31:45 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:31:45 stats.py[line:184] INFO 		_id [5a190e51c3c0ec1af630de1e]
+Sat, 25 Nov 2017 14:31:45 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:33:16 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:33:17 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:33:17 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:33:17 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:33:17 stats.py[line:184] INFO 		timestamp [2017-11-25 14:33:16]
+Sat, 25 Nov 2017 14:33:17 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:33:17 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:33:17 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:33:17 stats.py[line:184] INFO 		_id [5a190eadc3c0ec1af630de1f]
+Sat, 25 Nov 2017 14:33:17 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:34:48 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:34:49 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:34:49 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:34:49 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:34:49 stats.py[line:184] INFO 		timestamp [2017-11-25 14:34:48]
+Sat, 25 Nov 2017 14:34:49 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:34:49 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:34:49 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:34:49 stats.py[line:184] INFO 		_id [5a190f09c3c0ec1af630de20]
+Sat, 25 Nov 2017 14:34:49 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:36:20 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:36:21 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:36:21 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:36:21 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:36:21 stats.py[line:184] INFO 		timestamp [2017-11-25 14:36:20]
+Sat, 25 Nov 2017 14:36:21 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:36:21 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:36:21 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:36:21 stats.py[line:184] INFO 		_id [5a190f65c3c0ec1af630de21]
+Sat, 25 Nov 2017 14:36:21 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:37:52 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:37:53 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:37:53 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:37:53 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:37:53 stats.py[line:184] INFO 		timestamp [2017-11-25 14:37:52]
+Sat, 25 Nov 2017 14:37:53 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:37:53 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:37:53 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:37:53 stats.py[line:184] INFO 		_id [5a190fc1c3c0ec1af630de22]
+Sat, 25 Nov 2017 14:37:53 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:39:24 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:39:25 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:39:25 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:39:25 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:39:25 stats.py[line:184] INFO 		timestamp [2017-11-25 14:39:24]
+Sat, 25 Nov 2017 14:39:25 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:39:25 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:39:25 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:39:25 stats.py[line:184] INFO 		_id [5a19101dc3c0ec1af630de23]
+Sat, 25 Nov 2017 14:39:25 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:40:56 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:40:57 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:40:57 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:40:57 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:40:57 stats.py[line:184] INFO 		timestamp [2017-11-25 14:40:56]
+Sat, 25 Nov 2017 14:40:57 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:40:57 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:40:57 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:40:57 stats.py[line:184] INFO 		_id [5a191079c3c0ec1af630de24]
+Sat, 25 Nov 2017 14:40:57 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:42:29 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:42:29 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:42:29 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:42:29 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:42:29 stats.py[line:184] INFO 		timestamp [2017-11-25 14:42:29]
+Sat, 25 Nov 2017 14:42:29 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:42:29 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:42:29 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:42:29 stats.py[line:184] INFO 		_id [5a1910d5c3c0ec1af630de25]
+Sat, 25 Nov 2017 14:42:29 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:44:01 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:44:01 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:44:01 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:44:01 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:44:01 stats.py[line:184] INFO 		timestamp [2017-11-25 14:44:01]
+Sat, 25 Nov 2017 14:44:01 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:44:01 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:44:01 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:44:01 stats.py[line:184] INFO 		_id [5a191131c3c0ec1af630de26]
+Sat, 25 Nov 2017 14:44:01 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:45:33 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:45:34 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:45:34 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:45:34 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:45:34 stats.py[line:184] INFO 		timestamp [2017-11-25 14:45:33]
+Sat, 25 Nov 2017 14:45:34 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:45:34 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:45:34 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:45:34 stats.py[line:184] INFO 		_id [5a19118ec3c0ec1af630de27]
+Sat, 25 Nov 2017 14:45:34 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:47:06 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:47:06 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:47:06 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:47:06 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:47:06 stats.py[line:184] INFO 		timestamp [2017-11-25 14:47:06]
+Sat, 25 Nov 2017 14:47:06 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:47:06 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:47:06 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:47:06 stats.py[line:184] INFO 		_id [5a1911eac3c0ec1af630de28]
+Sat, 25 Nov 2017 14:47:06 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:48:38 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:48:38 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:48:38 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:48:38 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:48:38 stats.py[line:184] INFO 		timestamp [2017-11-25 14:48:38]
+Sat, 25 Nov 2017 14:48:38 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:48:38 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:48:38 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:48:38 stats.py[line:184] INFO 		_id [5a191246c3c0ec1af630de29]
+Sat, 25 Nov 2017 14:48:38 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:50:10 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:50:10 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:50:10 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:50:10 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:50:10 stats.py[line:184] INFO 		timestamp [2017-11-25 14:50:10]
+Sat, 25 Nov 2017 14:50:10 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:50:10 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:50:10 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:50:10 stats.py[line:184] INFO 		_id [5a1912a2c3c0ec1af630de2a]
+Sat, 25 Nov 2017 14:50:10 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:51:42 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:51:42 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:51:42 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:51:42 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:51:42 stats.py[line:184] INFO 		timestamp [2017-11-25 14:51:42]
+Sat, 25 Nov 2017 14:51:42 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:51:42 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:51:42 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:51:42 stats.py[line:184] INFO 		_id [5a1912fec3c0ec1af630de2b]
+Sat, 25 Nov 2017 14:51:42 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:53:14 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:53:14 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:53:14 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:53:14 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:53:14 stats.py[line:184] INFO 		timestamp [2017-11-25 14:53:14]
+Sat, 25 Nov 2017 14:53:14 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:53:14 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:53:14 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:53:14 stats.py[line:184] INFO 		_id [5a19135ac3c0ec1af630de2c]
+Sat, 25 Nov 2017 14:53:14 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:54:46 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:54:46 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:54:46 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:54:46 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:54:46 stats.py[line:184] INFO 		timestamp [2017-11-25 14:54:46]
+Sat, 25 Nov 2017 14:54:46 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:54:46 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:54:46 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:54:46 stats.py[line:184] INFO 		_id [5a1913b6c3c0ec1af630de2d]
+Sat, 25 Nov 2017 14:54:46 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:56:17 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:56:18 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:56:18 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:56:18 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:56:18 stats.py[line:184] INFO 		timestamp [2017-11-25 14:56:17]
+Sat, 25 Nov 2017 14:56:18 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:56:18 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:56:18 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:56:18 stats.py[line:184] INFO 		_id [5a191412c3c0ec1af630de2e]
+Sat, 25 Nov 2017 14:56:18 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:57:49 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:57:49 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:57:49 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:57:49 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:57:49 stats.py[line:184] INFO 		timestamp [2017-11-25 14:57:49]
+Sat, 25 Nov 2017 14:57:49 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:57:49 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:57:49 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:57:49 stats.py[line:184] INFO 		_id [5a19146dc3c0ec1af630de2f]
+Sat, 25 Nov 2017 14:57:49 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 14:59:21 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 14:59:21 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 14:59:21 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 14:59:21 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 14:59:21 stats.py[line:184] INFO 		timestamp [2017-11-25 14:59:21]
+Sat, 25 Nov 2017 14:59:21 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 14:59:21 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 14:59:21 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 14:59:21 stats.py[line:184] INFO 		_id [5a1914c9c3c0ec1af630de30]
+Sat, 25 Nov 2017 14:59:21 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sat, 25 Nov 2017 15:00:53 stats.py[line:180] INFO DDNS detect.
+Sat, 25 Nov 2017 15:00:53 stats.py[line:182] INFO Report generation.
+Sat, 25 Nov 2017 15:00:53 stats.py[line:184] INFO 		tags_active_number [27660]
+Sat, 25 Nov 2017 15:00:53 stats.py[line:184] INFO 		tags_inactive_number [53933]
+Sat, 25 Nov 2017 15:00:53 stats.py[line:184] INFO 		timestamp [2017-11-25 15:00:53]
+Sat, 25 Nov 2017 15:00:53 stats.py[line:184] INFO 		window_increment [81602]
+Sat, 25 Nov 2017 15:00:53 stats.py[line:184] INFO 		domain_number [81602]
+Sat, 25 Nov 2017 15:00:53 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sat, 25 Nov 2017 15:00:53 stats.py[line:184] INFO 		_id [5a191525c3c0ec1af630de31]
+Sat, 25 Nov 2017 15:00:53 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sun, 26 Nov 2017 14:02:36 stats.py[line:180] INFO DDNS detect.
+Sun, 26 Nov 2017 14:02:36 stats.py[line:182] INFO Report generation.
+Sun, 26 Nov 2017 14:02:36 stats.py[line:184] INFO 		tags_active_number [27702]
+Sun, 26 Nov 2017 14:02:36 stats.py[line:184] INFO 		tags_inactive_number [53890]
+Sun, 26 Nov 2017 14:02:36 stats.py[line:184] INFO 		timestamp [2017-11-26 14:02:36]
+Sun, 26 Nov 2017 14:02:36 stats.py[line:184] INFO 		window_increment [81602]
+Sun, 26 Nov 2017 14:02:36 stats.py[line:184] INFO 		domain_number [81602]
+Sun, 26 Nov 2017 14:02:36 stats.py[line:184] INFO 		domain_daily_increment [81602]
+Sun, 26 Nov 2017 14:02:36 stats.py[line:184] INFO 		_id [5a1a58fcc3c0ec1af630de32]
+Sun, 26 Nov 2017 14:02:36 stats.py[line:184] INFO 		tags_sinkhole_number [1550]
+Sun, 26 Nov 2017 14:02:36 stats.py[line:186] INFO Export to Excel:"report.xls".
+Mon, 27 Nov 2017 11:40:14 stats.py[line:187] INFO Report generation.
+Mon, 27 Nov 2017 11:40:14 stats.py[line:189] INFO 		tags_active_number [44243]
+Mon, 27 Nov 2017 11:40:14 stats.py[line:189] INFO 		tags_inactive_number [83763]
+Mon, 27 Nov 2017 11:40:14 stats.py[line:189] INFO 		timestamp [2017-11-27 11:40:14]
+Mon, 27 Nov 2017 11:40:14 stats.py[line:189] INFO 		window_increment [0]
+Mon, 27 Nov 2017 11:40:14 stats.py[line:189] INFO 		domain_number [128228]
+Mon, 27 Nov 2017 11:40:14 stats.py[line:189] INFO 		domain_daily_increment [-9419]
+Mon, 27 Nov 2017 11:40:14 stats.py[line:189] INFO 		_id [5a1b891ec3c0ec3d61e34033]
+Mon, 27 Nov 2017 11:40:14 stats.py[line:189] INFO 		tags_sinkhole_number [4710]
+Mon, 27 Nov 2017 11:40:14 stats.py[line:191] INFO Export to Excel:"report.xls".
+Mon, 27 Nov 2017 11:42:44 stats.py[line:193] INFO DDNS detect.
