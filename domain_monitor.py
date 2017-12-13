@@ -20,7 +20,7 @@ log = logging.getLogger(cfg.get('common', 'logger'))
 class MultiThread(object):
     def __init__(self):
         # schedule config
-        self.time_list = [cfg.getint('common', 'start_time')]
+        self.start_time = cfg.getint('common', 'start_time')
         # queue config
         self._queue = Queue.Queue()
         # threads config
@@ -30,7 +30,8 @@ class MultiThread(object):
         self.filename = cfg.get('common', 'filename')
         # domain resource
         self.domain = pymongo.MongoClient(cfg.get('common', 'host'),
-                                          cfg.getint('common', 'port'))[cfg.get('common', 'db')][cfg.get('common', 'collection')]
+                                          cfg.getint('common', 'port'))[cfg.get('common', 'db')][
+            cfg.get('common', 'collection')]
 
     def in_queue_from_file(self):
         # read each line from file
@@ -70,7 +71,7 @@ class MultiThread(object):
         # _date = str(datetime.datetime.now()).split()[0]
         _time = str(datetime.datetime.now()).split()[1]
 
-        if int(_time.split(':')[0]) in self.time_list:
+        if datetime.datetime.now().hour == self.start_time:
             log.info('Task Started.')
             self.start_monitor()
             log.info('Task Completed.')
@@ -94,8 +95,10 @@ class DomainMonitor(threading.Thread):
         self.client = pymongo.MongoClient(self.host, self.port)
         self.db = self.client[cfg.get('mongodb', 'db')]
         self.domain = self.db[cfg.get('mongodb', 'collection')]
+        self.domain_ip = self.db[cfg.get('mongodb', 'domain_ip')]
         # 临时保存解析结果
         self.document = {}
+        self.simplify_doc = {}
 
     def run(self):
         while not self._queue.empty():
@@ -130,13 +133,18 @@ class DomainMonitor(threading.Thread):
         为域名添加标记
         :return:
         """
+        flag = False
         for ip in ips:
             # 如果解析为下述六种之一，则认为该域名被沉洞
             check = ipaddr.IPv4Address(ip)
             if (check.is_link_local or check.is_loopback
-                    or check.is_private or check.is_unspecified):
-                self.document['tags'].append('sinkhole')
-                break
+                or check.is_private or check.is_unspecified):
+                continue
+            else:
+                flag = True
+        if flag is False:
+            self.document['tags'].append('sinkhole')
+        return flag
 
     def monitor(self, domain, family):
         """
@@ -150,13 +158,29 @@ class DomainMonitor(threading.Thread):
         self.document['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         self.document['family'] = family
         if len(ip) > 0:
+            for _ip in ip[2]:
+                self.simplify_doc.clear()
+                check = ipaddr.IPv4Address(_ip)
+                if check.is_link_local or check.is_loopback or check.is_private or check.is_unspecified:
+                    continue
+                self.simplify_doc['original_domain'] = domain
+                self.simplify_doc['ip'] = str(_ip)
+                self.simplify_doc['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+                self.domain_ip.insert(self.simplify_doc)
+
             self.document['parsed_domain'] = ip[0]
             self.document['aliaslist'] = ip[1]
             ips = []
             for _ip in ip[2]:
                 ips.append(str(_ip))
             self.document['tags'] = ['active']
-            self.set_tag(ips)
+            flag = self.set_tag(ips)
+            # flag == false, domain被sinkhole
+            # 下面这个段代码用于将sinkhole域名时间保持在第一次检测出来的时间
+            if not flag:
+                data = self.domain.find_one({'original_domain': domain})
+                if data is not None:
+                    self.document['timestamp'] = data['timestamp']
 
             # 根据是否能解析出ip地址，数据库操作有所不同 1
             # 存入数据库-Collection: domain

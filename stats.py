@@ -6,11 +6,13 @@ import pymongo
 import logging.config
 import xlwt
 
+import detector
+
 
 class Stats(object):
     def __init__(self):
         # schedule config
-        self.time_list = 11
+        self.time_list = 8
         # logging config
         logging.config.fileConfig('logging.conf')
         self.log = logging.getLogger('report')
@@ -36,6 +38,7 @@ class Stats(object):
         self.daily_report['tags_sinkhole_number'] = self.domain.find({'tags': 'sinkhole'}).count()
         self.daily_report['tags_active_number'] = self.domain.find({'tags': 'active'}).count()
         self.daily_report['tags_inactive_number'] = self.domain.find({'tags': 'inactive'}).count()
+        self.daily_report['tags_ddns_number'] = self.domain.find({'tags': 'ddns'}).count()
 
         # 日增量计算
         _now = datetime.datetime.now()
@@ -48,9 +51,7 @@ class Stats(object):
         )
 
         if yestoday_domain is not None:
-            self.daily_report['domain_daily_increment'] = self.domain.find(
-                {'timestamp': {'$gt': _today, '$lt': _tomorrow}}
-            ).count() - yestoday_domain['domain_number']
+            self.daily_report['domain_daily_increment'] = self.domain.count() - yestoday_domain['domain_number']
         else:
             self.daily_report['domain_daily_increment'] = 0
 
@@ -59,9 +60,7 @@ class Stats(object):
         _windowr_date = str(_now - datetime.timedelta(days=5)).split()[0]
         _window_domain = self.report.find_one({'timestamp': {'$gt': _windowl_date, '$lt': _windowr_date}})
         if _window_domain is not None:
-            self.daily_report['window_increment'] = self.domain.find(
-                {'timestamp': {'$gt': _today, '$lt': _tomorrow}}
-            ).count() - _window_domain['domain_number']
+            self.daily_report['window_increment'] = self.domain.count() - _window_domain['domain_number']
         else:
             self.daily_report['window_increment'] = 0
 
@@ -141,38 +140,43 @@ class Stats(object):
                                  upsert=True)
 
     def export2excel(self):
-        keys = ['timestamp',
-                'domain_number',
-                'domain_daily_increment',
-                'window_increment',
-                'tags_active_number',
-                'tags_inactive_number',
-                'tags_sinkhole_number']
-        _now = datetime.datetime.now()
-        # _today = str(_now).split()[0]
-        _tomorrow = str(_now + datetime.timedelta(days=1)).split()[0]
-        _before = str(_now - datetime.timedelta(days=6)).split()[0]
+        try:
+            keys = ['timestamp',
+                    'domain_number',
+                    'domain_daily_increment',
+                    'window_increment',
+                    'tags_active_number',
+                    'tags_inactive_number',
+                    'tags_sinkhole_number',
+                    'tags_ddns_number']
+            _now = datetime.datetime.now()
+            # _today = str(_now).split()[0]
+            _tomorrow = str(_now + datetime.timedelta(days=1)).split()[0]
+            _before = str(_now - datetime.timedelta(days=6)).split()[0]
 
-        workbook = xlwt.Workbook(encoding='utf-8')
-        worksheet = workbook.add_sheet('domain', cell_overwrite_ok=True)
+            workbook = xlwt.Workbook(encoding='utf-8')
+            worksheet = workbook.add_sheet('domain', cell_overwrite_ok=True)
 
-        data = self.report.find({'timestamp': {'$gt': _before, '$lt': _tomorrow}})
-        row = 0
-        col = 0
-        for d in data:
-            if row == 0:
+            data = self.report.find({'timestamp': {'$gt': _before, '$lt': _tomorrow}})
+            row = 0
+            col = 0
+            for d in data:
+                if row == 0:
+                    for key in keys:
+                        worksheet.write(row, col, key)
+                        col += 1
+                    col = 0
+                    row += 1
                 for key in keys:
-                    worksheet.write(row, col, key)
+                    worksheet.write(row, col, d.get(key, 'n/a'))
                     col += 1
                 col = 0
                 row += 1
-            for key in keys:
-                worksheet.write(row, col, d[key])
-                col += 1
-            col = 0
-            row += 1
 
-        workbook.save('report.xls')
+            workbook.save('report.xls')
+        except Exception as msg:
+            print msg
+            pass
 
     def schedule(self):
         """
@@ -191,6 +195,8 @@ class Stats(object):
             self.log.info('Export to Excel:"report.xls".')
             self.ddns_detect()
             self.log.info('DDNS detect.')
+            detector.Detector().detect()
+            self.log.info('detector.py finish')
 
 
 if __name__ == '__main__':

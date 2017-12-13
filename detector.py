@@ -64,8 +64,11 @@ class Detector(object):
             self.ip2domain.update({'ip': ip}, {'$set': {'same_family': same_family}})
         print 'match same family'
 
+    def detect(self):
+        self.add_tags_ddns()
+        self.match_ip2domain()
+
 
 if __name__ == '__main__':
     detector = Detector()
-    detector.add_tags_ddns()
-    detector.match_ip2domain()
+    detector.detect()
