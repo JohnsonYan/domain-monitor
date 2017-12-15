@@ -15,7 +15,7 @@ cfg.read('config.ini')
 class MultiThread(object):
     def __init__(self):
         # schedule config
-        self.start_time = 14
+        self.start_time = 12
         # queue config
         self._queue = Queue.Queue()
         # threads config
@@ -75,25 +75,22 @@ class WhoisMonitor(threading.Thread):
     def run(self):
         while not self._queue.empty():
             domain = self._queue.get_nowait()
-            self.monitor(domain)
+            self.monitor(str(domain))
 
     def monitor(self, domain):
         for i in range(3):
             try:
                 self.whois_doc.clear()
-                self.whois_doc = whois.whois(str(domain))
-                if self.whois_doc is not None:
-                    self.whois_doc['original_domain'] = domain
-                    self.whois_doc['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-                    self.domain_whois.update({'original_domain': domain}, {'$set': self.whois_doc}, upsert=True)
-                    print 'upsert %s'%domain
-                else:
-                    print 'à'*50
+                self.whois_doc = whois.whois(domain)
+                self.whois_doc['original_domain'] = domain
+                self.whois_doc['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+                self.domain_whois.update({'original_domain': domain}, {'$set': self.whois_doc}, upsert=True)
+                print 'upsert %s'%domain
             except Exception:
                 if i >= 2:
                     print 'reach max retries,%s' % domain
                 else:
-                    time.sleep(3)
+                    time.sleep(10)
             else:
                 time.sleep(0.1)
                 break

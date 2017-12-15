@@ -99,6 +99,7 @@ class DomainMonitor(threading.Thread):
         # 临时保存解析结果
         self.document = {}
         self.simplify_doc = {}
+        self.tags = set()
 
     def run(self):
         while not self._queue.empty():
@@ -113,18 +114,19 @@ class DomainMonitor(threading.Thread):
         :return: ip = [domain, aliaslist, ipaddrlist]
         """
         ip = []
+        self.tags.clear()
         try:
             ip = socket.gethostbyname_ex(domain)
         except socket.error as msg:
             # -2 Name or service not known
             if msg.errno == -2:
-                self.document['tags'] = ['inactive']
+                self.tags.add('inactive')
                 # print msg.errno, msg.strerror
             else:
-                self.document['tags'] = ['%s: %s' % (str(msg.errno), msg.strerror)]
+                self.tags.add('%s: %s' % (str(msg.errno), msg.strerror))
                 # print msg.errno,msg.strerror
         except UnicodeEncodeError as msg:
-            self.document['tags'] = ['DomainUnicodeEncodeError']
+            self.tags.add('DomainUnicodeEncodeError')
 
         return ip
 
@@ -143,7 +145,7 @@ class DomainMonitor(threading.Thread):
             else:
                 flag = True
         if flag is False:
-            self.document['tags'].append('sinkhole')
+            self.tags.add('sinkhole')
         return flag
 
     def monitor(self, domain, family):
@@ -151,6 +153,7 @@ class DomainMonitor(threading.Thread):
         域名监控的主函数，包括数据库的存取，域名解析，打标签等功能
         :return:
         """
+
         self.document.clear()
         # log.debug('[Parsed %d] Start parsing domain: %s' % (count, domain))
         ip = self.domain2ip(domain)
@@ -158,6 +161,7 @@ class DomainMonitor(threading.Thread):
         self.document['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         self.document['family'] = family
         if len(ip) > 0:
+            # 单独存储每天的domain-ip状态，较为容易解析
             for _ip in ip[2]:
                 self.simplify_doc.clear()
                 check = ipaddr.IPv4Address(_ip)
@@ -173,29 +177,33 @@ class DomainMonitor(threading.Thread):
             ips = []
             for _ip in ip[2]:
                 ips.append(str(_ip))
-            self.document['tags'] = ['active']
+            self.tags.add('active')
             flag = self.set_tag(ips)
             # flag == false, domain被sinkhole
             # 下面这个段代码用于将sinkhole域名时间保持在第一次检测出来的时间
             if not flag:
                 data = self.domain.find_one({'original_domain': domain})
                 if data is not None:
-                    self.document['timestamp'] = data['timestamp']
+                    self.document['timestamp'] = data.get('timestamp')
 
             # 根据是否能解析出ip地址，数据库操作有所不同 1
             # 存入数据库-Collection: domain
+            self.domain.update({'original_domain': domain}, {'$pull': {'tags': 'inactive'}})
             self.domain.update({'original_domain': domain},
                                {'$set': self.document,
                                 '$addToSet': {'iplist': {'ip': ips, 'timestamp': time.strftime('%Y-%m-%d %H:%M:%S',
                                                                                                time.localtime(
-                                                                                                   time.time()))}}
+                                                                                                   time.time()))},
+                                              'tags': {'$each': list(self.tags)}}
                                 },
                                upsert=True)
         else:
             # 根据是否能解析出ip地址，数据库操作有所不同 2
             # 存入数据库-Collection: domain
+            self.domain.update({'original_domain': domain}, {'$pull': {'tags': 'active'}})
             self.domain.update({'original_domain': domain},
-                               {'$set': self.document},
+                               {'$set': self.document,
+                                '$addToSet': {'tags': {'$each': list(self.tags)}}},
                                upsert=True)
 
     def clean_outdated_domains(self):

@@ -187,16 +187,16 @@ class Stats(object):
         _time = datetime.datetime.now()
 
         if _time.hour == self.time_list:
-            self.generate_report()
-            self.log.info('Report generation.')
-            for key, value in self.daily_report.items():
-                self.log.info('\t\t%s [%s]' % (key, value))
-            self.export2excel()
-            self.log.info('Export to Excel:"report.xls".')
             self.ddns_detect()
             self.log.info('DDNS detect.')
             detector.Detector().detect()
             self.log.info('detector.py finish')
+            self.generate_report()
+            self.log.info('Report generation.')
+            for key, value in self.daily_report.items():
+                self.log.info('\t\t%s [%s]'%(key, value))
+            self.export2excel()
+            self.log.info('Export to Excel:"report.xls".')
 
 
 if __name__ == '__main__':
