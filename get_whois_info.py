@@ -15,7 +15,7 @@ cfg.read('config.ini')
 class MultiThread(object):
     def __init__(self):
         # schedule config
-        self.start_time = 12
+        self.start_time = 15
         # queue config
         self._queue = Queue.Queue()
         # threads config
@@ -54,7 +54,7 @@ class MultiThread(object):
         """
         if datetime.datetime.now().hour == self.start_time:
             self.start_monitor()
-            print '[%s]task: get whois infomation done today.' % time.strftime('%Y-%m-%d %H:%M:%S',
+            print '[info][%s]task: get whois infomation done today.' % time.strftime('%Y-%m-%d %H:%M:%S',
                                                                                time.localtime(time.time()))
 
 
@@ -75,7 +75,12 @@ class WhoisMonitor(threading.Thread):
     def run(self):
         while not self._queue.empty():
             domain = self._queue.get_nowait()
-            self.monitor(str(domain))
+            try:
+                domain = str(domain)
+                self.monitor(domain)
+            except UnicodeEncodeError as msg:
+                print '[debug:error]%s' % msg.message
+                continue
 
     def monitor(self, domain):
         for i in range(3):
@@ -85,10 +90,10 @@ class WhoisMonitor(threading.Thread):
                 self.whois_doc['original_domain'] = domain
                 self.whois_doc['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
                 self.domain_whois.update({'original_domain': domain}, {'$set': self.whois_doc}, upsert=True)
-                print 'upsert %s'%domain
+                print '[debug]upsert %s'%domain
             except Exception:
                 if i >= 2:
-                    print 'reach max retries,%s' % domain
+                    print '[debug]reach max retries,%s' % domain
                 else:
                     time.sleep(10)
             else:
