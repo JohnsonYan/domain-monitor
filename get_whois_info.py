@@ -15,11 +15,11 @@ cfg.read('config.ini')
 class MultiThread(object):
     def __init__(self):
         # schedule config
-        self.start_time = 15
+        self.start_time = 10
         # queue config
         self._queue = Queue.Queue()
         # threads config
-        self.thread_count = 50
+        self.thread_count = 1
         self.count = 0
         # domain resource
         self.domain = pymongo.MongoClient(cfg.get('common', 'host'),
@@ -68,7 +68,9 @@ class WhoisMonitor(threading.Thread):
         self.client = pymongo.MongoClient(self.host, self.port)
         self.db = self.client[cfg.get('mongodb', 'db')]
         self.domain = self.db[cfg.get('mongodb', 'collection')]
-        self.domain_whois = self.db['domain_whois']
+        # self.domain_whois = self.db['domain_whois']
+        self.domain_whois = self.db['test_whois']
+
         # 临时保存解析结果
         self.whois_doc = {}
 
@@ -87,6 +89,12 @@ class WhoisMonitor(threading.Thread):
             try:
                 self.whois_doc.clear()
                 self.whois_doc = whois.whois(domain)
+
+                #TODO:need test
+                for key, value in self.whois_doc.items():
+                    if self.whois_doc.get(key) is None:
+                        self.whois_doc.pop(key)
+
                 self.whois_doc['original_domain'] = domain
                 self.whois_doc['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
                 self.domain_whois.update({'original_domain': domain}, {'$set': self.whois_doc}, upsert=True)
