@@ -15,11 +15,11 @@ cfg.read('config.ini')
 class MultiThread(object):
     def __init__(self):
         # schedule config
-        self.start_time = 10
+        self.start_time = 14
         # queue config
         self._queue = Queue.Queue()
         # threads config
-        self.thread_count = 1
+        self.thread_count = 50
         self.count = 0
         # domain resource
         self.domain = pymongo.MongoClient(cfg.get('common', 'host'),
@@ -68,8 +68,8 @@ class WhoisMonitor(threading.Thread):
         self.client = pymongo.MongoClient(self.host, self.port)
         self.db = self.client[cfg.get('mongodb', 'db')]
         self.domain = self.db[cfg.get('mongodb', 'collection')]
-        # self.domain_whois = self.db['domain_whois']
-        self.domain_whois = self.db['test_whois']
+        self.domain_whois = self.db['domain_whois']
+        # self.domain_whois = self.db['test_whois']
 
         # 临时保存解析结果
         self.whois_doc = {}
@@ -85,28 +85,23 @@ class WhoisMonitor(threading.Thread):
                 continue
 
     def monitor(self, domain):
-        for i in range(3):
-            try:
-                self.whois_doc.clear()
-                self.whois_doc = whois.whois(domain)
+        try:
+            self.whois_doc.clear()
+            self.whois_doc = whois.whois(domain)
 
-                #TODO:need test
-                for key, value in self.whois_doc.items():
-                    if self.whois_doc.get(key) is None:
-                        self.whois_doc.pop(key)
+            to_delete = []
+            for key in self.whois_doc.keys():
+                if self.whois_doc.get(key) is None:
+                    to_delete.append(key)
+            for key in to_delete:
+                self.whois_doc.pop(key)
 
-                self.whois_doc['original_domain'] = domain
-                self.whois_doc['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-                self.domain_whois.update({'original_domain': domain}, {'$set': self.whois_doc}, upsert=True)
-                print '[debug]upsert %s'%domain
-            except Exception:
-                if i >= 2:
-                    print '[debug]reach max retries,%s' % domain
-                else:
-                    time.sleep(10)
-            else:
-                time.sleep(0.1)
-                break
+            self.whois_doc['original_domain'] = domain
+            self.whois_doc['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+            self.domain_whois.update({'original_domain': domain}, {'$set': self.whois_doc}, upsert=True)
+            print '[debug]upsert %s' % domain
+        except Exception as msg:
+            pass
 
 
 if __name__ == '__main__':
