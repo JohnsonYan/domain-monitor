@@ -2233,3 +2233,67 @@ Mon, 18 Dec 2017 08:32:31 stats.py[line:197] INFO 		domain_daily_increment [6594
 Mon, 18 Dec 2017 08:32:31 stats.py[line:197] INFO 		_id [5a370c9fc3c0ec2cf429c949]
 Mon, 18 Dec 2017 08:32:31 stats.py[line:197] INFO 		tags_sinkhole_number [5829]
 Mon, 18 Dec 2017 08:32:31 stats.py[line:199] INFO Export to Excel:"report.xls".
+Tue, 19 Dec 2017 01:51:51 domain_monitor.py[line:75] INFO Task Started.
+Tue, 19 Dec 2017 03:30:41 domain_monitor.py[line:77] INFO Task Completed.
+Tue, 19 Dec 2017 03:30:42 domain_monitor.py[line:220] INFO Clean outdated domains. Outdate time: 2017-10-20 03:30:41.649246
+Tue, 19 Dec 2017 08:44:17 stats.py[line:191] INFO DDNS detect.
+Tue, 19 Dec 2017 08:46:16 stats.py[line:193] INFO detector.py finish
+Tue, 19 Dec 2017 08:46:16 stats.py[line:195] INFO Report generation.
+Tue, 19 Dec 2017 08:46:16 stats.py[line:197] INFO 		tags_active_number [75814]
+Tue, 19 Dec 2017 08:46:16 stats.py[line:197] INFO 		tags_inactive_number [145079]
+Tue, 19 Dec 2017 08:46:16 stats.py[line:197] INFO 		timestamp [2017-12-19 08:46:16]
+Tue, 19 Dec 2017 08:46:16 stats.py[line:197] INFO 		window_increment [29365]
+Tue, 19 Dec 2017 08:46:16 stats.py[line:197] INFO 		domain_number [221568]
+Tue, 19 Dec 2017 08:46:16 stats.py[line:197] INFO 		tags_ddns_number [3508]
+Tue, 19 Dec 2017 08:46:16 stats.py[line:197] INFO 		domain_daily_increment [3130]
+Tue, 19 Dec 2017 08:46:16 stats.py[line:197] INFO 		_id [5a386158c3c0ec2cf429c94d]
+Tue, 19 Dec 2017 08:46:16 stats.py[line:197] INFO 		tags_sinkhole_number [5875]
+Tue, 19 Dec 2017 08:46:16 stats.py[line:199] INFO Export to Excel:"report.xls".
+Wed, 20 Dec 2017 01:30:43 domain_monitor.py[line:75] INFO Task Started.
+Wed, 20 Dec 2017 03:52:12 domain_monitor.py[line:77] INFO Task Completed.
+Wed, 20 Dec 2017 03:52:13 domain_monitor.py[line:220] INFO Clean outdated domains. Outdate time: 2017-10-21 03:52:12.585699
+Wed, 20 Dec 2017 08:59:04 stats.py[line:191] INFO DDNS detect.
+Wed, 20 Dec 2017 09:01:10 stats.py[line:193] INFO detector.py finish
+Wed, 20 Dec 2017 09:01:10 stats.py[line:195] INFO Report generation.
+Wed, 20 Dec 2017 09:01:10 stats.py[line:197] INFO 		tags_active_number [77284]
+Wed, 20 Dec 2017 09:01:10 stats.py[line:197] INFO 		tags_inactive_number [146942]
+Wed, 20 Dec 2017 09:01:10 stats.py[line:197] INFO 		timestamp [2017-12-20 09:01:10]
+Wed, 20 Dec 2017 09:01:10 stats.py[line:197] INFO 		window_increment [27951]
+Wed, 20 Dec 2017 09:01:10 stats.py[line:197] INFO 		domain_number [224900]
+Wed, 20 Dec 2017 09:01:10 stats.py[line:197] INFO 		tags_ddns_number [3586]
+Wed, 20 Dec 2017 09:01:10 stats.py[line:197] INFO 		domain_daily_increment [3332]
+Wed, 20 Dec 2017 09:01:10 stats.py[line:197] INFO 		_id [5a39b656c3c0ec2cf429c951]
+Wed, 20 Dec 2017 09:01:10 stats.py[line:197] INFO 		tags_sinkhole_number [5921]
+Wed, 20 Dec 2017 09:01:10 stats.py[line:199] INFO Export to Excel:"report.xls".
+Thu, 21 Dec 2017 01:52:14 domain_monitor.py[line:75] INFO Task Started.
+Thu, 21 Dec 2017 05:04:33 domain_monitor.py[line:77] INFO Task Completed.
+Thu, 21 Dec 2017 05:04:34 domain_monitor.py[line:220] INFO Clean outdated domains. Outdate time: 2017-10-22 05:04:33.924952
+Thu, 21 Dec 2017 08:14:26 stats.py[line:191] INFO DDNS detect.
+Thu, 21 Dec 2017 08:16:33 stats.py[line:193] INFO detector.py finish
+Thu, 21 Dec 2017 08:16:33 stats.py[line:195] INFO Report generation.
+Thu, 21 Dec 2017 08:16:33 stats.py[line:197] INFO 		tags_active_number [77515]
+Thu, 21 Dec 2017 08:16:33 stats.py[line:197] INFO 		tags_inactive_number [147277]
+Thu, 21 Dec 2017 08:16:33 stats.py[line:197] INFO 		timestamp [2017-12-21 08:16:33]
+Thu, 21 Dec 2017 08:16:33 stats.py[line:197] INFO 		window_increment [21966]
+Thu, 21 Dec 2017 08:16:33 stats.py[line:197] INFO 		domain_number [225466]
+Thu, 21 Dec 2017 08:16:33 stats.py[line:197] INFO 		tags_ddns_number [3685]
+Thu, 21 Dec 2017 08:16:33 stats.py[line:197] INFO 		domain_daily_increment [566]
+Thu, 21 Dec 2017 08:16:33 stats.py[line:197] INFO 		_id [5a3afd61c3c0ec2cf429c955]
+Thu, 21 Dec 2017 08:16:33 stats.py[line:197] INFO 		tags_sinkhole_number [5952]
+Thu, 21 Dec 2017 08:16:33 stats.py[line:199] INFO Export to Excel:"report.xls".
+Fri, 22 Dec 2017 01:04:35 domain_monitor.py[line:75] INFO Task Started.
+Fri, 22 Dec 2017 05:27:51 domain_monitor.py[line:77] INFO Task Completed.
+Fri, 22 Dec 2017 05:27:52 domain_monitor.py[line:220] INFO Clean outdated domains. Outdate time: 2017-10-23 05:27:51.649050
+Fri, 22 Dec 2017 08:30:45 stats.py[line:191] INFO DDNS detect.
+Fri, 22 Dec 2017 08:32:58 stats.py[line:193] INFO detector.py finish
+Fri, 22 Dec 2017 08:32:58 stats.py[line:195] INFO Report generation.
+Fri, 22 Dec 2017 08:32:58 stats.py[line:197] INFO 		tags_active_number [78426]
+Fri, 22 Dec 2017 08:32:58 stats.py[line:197] INFO 		tags_inactive_number [148848]
+Fri, 22 Dec 2017 08:32:58 stats.py[line:197] INFO 		timestamp [2017-12-22 08:32:58]
+Fri, 22 Dec 2017 08:32:58 stats.py[line:197] INFO 		window_increment [21930]
+Fri, 22 Dec 2017 08:32:58 stats.py[line:197] INFO 		domain_number [227946]
+Fri, 22 Dec 2017 08:32:58 stats.py[line:197] INFO 		tags_ddns_number [3778]
+Fri, 22 Dec 2017 08:32:58 stats.py[line:197] INFO 		domain_daily_increment [2480]
+Fri, 22 Dec 2017 08:32:58 stats.py[line:197] INFO 		_id [5a3c52bac3c0ec2cf429c959]
+Fri, 22 Dec 2017 08:32:58 stats.py[line:197] INFO 		tags_sinkhole_number [6007]
+Fri, 22 Dec 2017 08:32:58 stats.py[line:199] INFO Export to Excel:"report.xls".

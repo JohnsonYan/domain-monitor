@@ -32,6 +32,9 @@ class MultiThread(object):
         self.domain = pymongo.MongoClient(cfg.get('common', 'host'),
                                           cfg.getint('common', 'port'))[cfg.get('common', 'db')][
             cfg.get('common', 'collection')]
+        # 做了端口映射、防火墙修改，访问公司外网从而读取本地机器172.16.100.38上的mongodb
+        self.local_avclass_domain = pymongo.MongoClient('36.152.29.163', 50017)['vtfeed']['maldomain']
+
 
     def in_queue_from_file(self):
         # read each line from file
@@ -46,11 +49,21 @@ class MultiThread(object):
         data = self.domain.find().batch_size(10)
         self.count = 0
         for d in data:
-            domains = d['domains']
+            domains = d.get('domains')
             self.count += 1
             # print 'put [%d]family: %s in queue' % (self.count, d['family'])
             for domain in domains:
-                self._queue.put([domain['domain'], d['family']])
+                self._queue.put([domain.get('domain'), d.get('family')])
+
+        # local avclass maldomain
+        data = self.local_avclass_domain.find().batch_size(10)
+        self.count = 0
+        for d in data:
+            domains = d.get('domains')
+            self.count += 1
+            # print 'put [%d]family: %s in queue' % (self.count, d['family'])
+            for domain in domains:
+                self._queue.put([domain.get('domain'), d.get('family')])
 
     def start_monitor(self):
         self.in_queue()
@@ -159,7 +172,7 @@ class DomainMonitor(threading.Thread):
         ip = self.domain2ip(domain)
         self.document['original_domain'] = domain
         self.document['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-        self.document['family'] = family
+        # self.document['family'] = family
         if len(ip) > 0:
             # 单独存储每天的domain-ip状态，较为容易解析
             for _ip in ip[2]:
@@ -194,6 +207,7 @@ class DomainMonitor(threading.Thread):
                                 '$addToSet': {'iplist': {'ip': ips, 'timestamp': time.strftime('%Y-%m-%d %H:%M:%S',
                                                                                                time.localtime(
                                                                                                    time.time()))},
+                                              'family': family,
                                               'tags': {'$each': list(self.tags)}}
                                 },
                                upsert=True)
