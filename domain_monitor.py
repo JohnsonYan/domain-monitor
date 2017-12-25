@@ -46,7 +46,7 @@ class MultiThread(object):
 
     def in_queue(self):
         # batch_size，小一些防止cursor失效
-        data = self.domain.find().batch_size(10)
+        data = self.domain.find()
         self.count = 0
         for d in data:
             domains = d.get('domains')
@@ -56,7 +56,7 @@ class MultiThread(object):
                 self._queue.put([domain.get('domain'), d.get('family')])
 
         # local avclass maldomain
-        data = self.local_avclass_domain.find().batch_size(10)
+        data = self.local_avclass_domain.find()
         self.count = 0
         for d in data:
             domains = d.get('domains')

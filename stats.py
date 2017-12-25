@@ -12,7 +12,7 @@ import detector
 class Stats(object):
     def __init__(self):
         # schedule config
-        self.time_list = 8
+        self.time_list = 14
         # logging config
         logging.config.fileConfig('logging.conf')
         self.log = logging.getLogger('report')
@@ -109,20 +109,19 @@ class Stats(object):
         _today = str(_now).split()[0]
         _tomorrow = str(_now + datetime.timedelta(days=1)).split()[0]
         # 获取到去重后的今天解析过的域名列表
-        domains = self.domain.distinct('original_domain')
+        domains = self.domain.find({'iplist': {'$exists': True}})
         # 统计今天的结果，将今天的domain绑定的ip存入数据库
-        for _domain in domains:
-            data = self.domain.find_one({'original_domain': _domain})
-            # 这里我们只关注active的主机
-            if dict(data).has_key('iplist'):
-                d = data['iplist']
-                for ip in d:
-                    self.ddns.update({'original_domain': _domain},
-                                     {'$addToSet': {'ipstats': {'timestamp': ip['timestamp'], 'iplist': ip['ip']}},
-                                      '$set': {'original_domain': _domain}}, upsert=True)
+        for data in domains:
+            d = data.get('iplist')
+            _domain = data.get('original_domain')
+            for ip in d:
+                self.ddns.update({'original_domain': _domain},
+                                 {'$addToSet': {'ipstats': {'timestamp': ip['timestamp'], 'iplist': ip['ip']}},
+                                  '$set': {'original_domain': _domain}}, upsert=True)
 
         # 检测domain绑定的ip变化的情况
-        for _domain in domains:
+        for d in domains:
+            _domain = d.get('original_domain')
             md5_list = []
             data = self.ddns.find_one({'original_domain': _domain})
             # print _domain

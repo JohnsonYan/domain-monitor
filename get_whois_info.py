@@ -15,26 +15,34 @@ cfg.read('config.ini')
 class MultiThread(object):
     def __init__(self):
         # schedule config
-        self.start_time = 14
+        self.start_time = 12
         # queue config
         self._queue = Queue.Queue()
         # threads config
-        self.thread_count = 50
+        self.thread_count = 20
         self.count = 0
         # domain resource
-        self.domain = pymongo.MongoClient(cfg.get('common', 'host'),
-                                          cfg.getint('common', 'port'))[cfg.get('common', 'db')][
-            cfg.get('common', 'collection')]
+        self.domain = pymongo.MongoClient(cfg.get('common', 'host'), cfg.getint('common', 'port'))[cfg.get('common', 'db')][cfg.get('common', 'collection')]
+        self.local_domain = pymongo.MongoClient(cfg.get('common', 'local_avclass_host'), cfg.getint('common', 'local_avclass_port'))[cfg.get('common', 'local_avclass_db')][cfg.get('common', 'local_avclass_collection')]
 
     def in_queue(self):
         # batch_size，小一些防止cursor失效
-        data = self.domain.find().batch_size(10)
+        data = self.domain.find()
         self.count = 0
         for d in data:
             domains = d['domains']
             self.count += 1
             for domain in domains:
                 self._queue.put(domain['domain'])
+        # local avclass domain
+        data = self.local_domain.find()
+        self.count = 0
+        for d in data:
+            domains = d.get('domains')
+            self.count += 1
+            # print 'put [%d]family: %s in queue' % (self.count, d['family'])
+            for domain in domains:
+                self._queue.put(domain.get('domain'))
 
     def start_monitor(self):
         self.in_queue()
@@ -53,9 +61,9 @@ class MultiThread(object):
         :return:
         """
         if datetime.datetime.now().hour == self.start_time:
+            print '[info][%s]task: start.' % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             self.start_monitor()
-            print '[info][%s]task: get whois infomation done today.' % time.strftime('%Y-%m-%d %H:%M:%S',
-                                                                               time.localtime(time.time()))
+            print '[info][%s]task: done.' % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
 
 
 class WhoisMonitor(threading.Thread):
@@ -81,7 +89,7 @@ class WhoisMonitor(threading.Thread):
                 domain = str(domain)
                 self.monitor(domain)
             except UnicodeEncodeError as msg:
-                print '[debug:error]%s' % msg.message
+                # print '[debug:error]%s' % msg.message
                 continue
 
     def monitor(self, domain):
@@ -99,9 +107,9 @@ class WhoisMonitor(threading.Thread):
             self.whois_doc['original_domain'] = domain
             self.whois_doc['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             self.domain_whois.update({'original_domain': domain}, {'$set': self.whois_doc}, upsert=True)
-            print '[debug]upsert %s' % domain
+            # print '[debug]upsert %s' % domain
         except Exception as msg:
-            pass
+            print msg
 
 
 if __name__ == '__main__':
