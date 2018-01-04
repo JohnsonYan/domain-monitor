@@ -30,10 +30,9 @@ class MultiThread(object):
         self.filename = cfg.get('common', 'filename')
         # domain resource
         self.domain = pymongo.MongoClient(cfg.get('common', 'host'),
-                                          cfg.getint('common', 'port'))[cfg.get('common', 'db')][
-            cfg.get('common', 'collection')]
+                                          cfg.getint('common', 'port'))['virustotal']['maldomain']
         # 做了端口映射、防火墙修改，访问公司外网从而读取本地机器172.16.100.38上的mongodb
-        self.local_avclass_domain = pymongo.MongoClient('36.152.29.163', 50017)['vtfeed']['maldomain']
+        self.local_avclass_domain = pymongo.MongoClient(cfg.get('common', 'local_avclass_host'), cfg.getint('common', 'local_avclass_port'))['vtfeed']['maldomain']
 
 
     def in_queue_from_file(self):
@@ -45,25 +44,30 @@ class MultiThread(object):
                 # print '[Domain in Queue: %d] [Put %s into Queue]' % (self._queue.qsize(), line.strip())
 
     def in_queue(self):
-        # batch_size，小一些防止cursor失效
-        data = self.domain.find()
+        pipeline = [
+            {'$unwind': '$domains'},
+            {'$group': {'_id': '$domains.domain', 'family': {'$addToSet': '$family'}}}
+        ]
+
+        data = self.domain.aggregate(pipeline=pipeline, allowDiskUse=True)
         self.count = 0
         for d in data:
-            domains = d.get('domains')
+            domain = d.get('_id')
+            family = d.get('family')
             self.count += 1
             # print 'put [%d]family: %s in queue' % (self.count, d['family'])
-            for domain in domains:
-                self._queue.put([domain.get('domain'), d.get('family')])
+            self._queue.put([domain, family])
+        print 'put %d domains from remote avclass to queue' % self.count
 
         # local avclass maldomain
-        data = self.local_avclass_domain.find()
+        data = self.local_avclass_domain.aggregate(pipeline=pipeline, allowDiskUse=True)
         self.count = 0
         for d in data:
-            domains = d.get('domains')
+            domain = d.get('_id')
+            family = d.get('family')
             self.count += 1
-            # print 'put [%d]family: %s in queue' % (self.count, d['family'])
-            for domain in domains:
-                self._queue.put([domain.get('domain'), d.get('family')])
+            self._queue.put([domain, family])
+        print 'put %d domains from local avclass to queue' % self.count
 
     def start_monitor(self):
         self.in_queue()
@@ -103,12 +107,9 @@ class DomainMonitor(threading.Thread):
         threading.Thread.__init__(self)
         self._queue = queue
         # mongodb config
-        self.host = cfg.get('mongodb', 'host')
-        self.port = cfg.getint('mongodb', 'port')
-        self.client = pymongo.MongoClient(self.host, self.port)
-        self.db = self.client[cfg.get('mongodb', 'db')]
-        self.domain = self.db[cfg.get('mongodb', 'collection')]
-        self.domain_ip = self.db[cfg.get('mongodb', 'domain_ip')]
+        self.client = pymongo.MongoClient(cfg.get('mongodb', 'host'), cfg.getint('mongodb', 'port'))
+        self.domain = self.client['virustotal']['domain']
+        self.domain_ip = self.client['virustotal']['domain_ip']
         # 临时保存解析结果
         self.document = {}
         self.simplify_doc = {}
@@ -172,7 +173,7 @@ class DomainMonitor(threading.Thread):
         ip = self.domain2ip(domain)
         self.document['original_domain'] = domain
         self.document['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-        # self.document['family'] = family
+        self.document['family'] = family
         if len(ip) > 0:
             # 单独存储每天的domain-ip状态，较为容易解析
             for _ip in ip[2]:
@@ -190,38 +191,16 @@ class DomainMonitor(threading.Thread):
             ips = []
             for _ip in ip[2]:
                 ips.append(str(_ip))
+            self.document['iplist'] = ips
             self.tags.add('active')
             flag = self.set_tag(ips)
             # flag == false, domain被sinkhole
-            # 下面这个段代码用于将sinkhole域名时间保持在第一次检测出来的时间
-            if not flag:
-                data = self.domain.find_one({'original_domain': domain})
-                if data is not None:
-                    self.document['timestamp'] = data.get('timestamp')
 
-            # 根据是否能解析出ip地址，数据库操作有所不同 1
-            # 存入数据库-Collection: domain
-            # self.domain.update({'original_domain': domain}, {'$pull': {'tags': 'inactive'}})
-            # self.domain.update({'original_domain': domain},
-            #                    {'$set': self.document,
-            #                     '$addToSet': {'iplist': {'ip': ips, 'timestamp': time.strftime('%Y-%m-%d %H:%M:%S',
-            #                                                                                    time.localtime(
-            #                                                                                        time.time()))},
-            #                                   'family': family,
-            #                                   'tags': {'$each': list(self.tags)}}
-            #                     },
-            #                    upsert=True)
-            # time.sleep(0.1)
-        else:
-            # 根据是否能解析出ip地址，数据库操作有所不同 2
-            # 存入数据库-Collection: domain
-            # self.domain.update({'original_domain': domain}, {'$pull': {'tags': 'active'}})
-            # self.domain.update({'original_domain': domain},
-            #                    {'$set': self.document,
-            #                     '$addToSet': {'tags': {'$each': list(self.tags)}}},
-            #                    upsert=True)
-            # time.sleep(0.1)
-            pass
+        self.document['tags'] = list(self.tags)
+
+        # 根据是否能解析出ip地址，数据库操作有所不同 1
+        # 存入数据库-Collection: domain
+        self.domain.insert(self.document)
 
     def clean_outdated_domains(self):
         """
@@ -232,9 +211,10 @@ class DomainMonitor(threading.Thread):
         # 计算60天前的时间
         _outdate = str(_now - datetime.timedelta(days=cfg.getint('common', 'days')))
 
-        self.domain.update({}, {'$pull': {'iplist': {'timestamp': {'$lt': _outdate}}}}, multi=True)
+        result = self.domain.delete_many({'timestamp': {'$lt': _outdate}})
+        count = result.deleted_count
         # print 'Clean outdated domains. Outdate time: %s' % _outdate
-        log.info('Clean outdated domains. Outdate time: %s' % _outdate)
+        log.info('Clean outdated domains. Outdate time: %s. Delete number: %d' % (_outdate, count))
 
 
 if __name__ == '__main__':

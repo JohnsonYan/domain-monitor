@@ -12,7 +12,7 @@ import detector
 class Stats(object):
     def __init__(self):
         # schedule config
-        self.time_list = 14
+        self.time_list = 22
         # logging config
         logging.config.fileConfig('logging.conf')
         self.log = logging.getLogger('report')
@@ -30,39 +30,31 @@ class Stats(object):
         """
         self.daily_report.clear()
         self.daily_report['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-
-        # 域名数量计算
-        self.daily_report['domain_number'] = self.domain.find({}).count()
-
-        # 标签统计
-        self.daily_report['tags_sinkhole_number'] = self.domain.find({'tags': 'sinkhole'}).count()
-        self.daily_report['tags_active_number'] = self.domain.find({'tags': 'active'}).count()
-        self.daily_report['tags_inactive_number'] = self.domain.find({'tags': 'inactive'}).count()
-        self.daily_report['tags_ddns_number'] = self.domain.find({'tags': 'ddns'}).count()
-
-        # 日增量计算
         _now = datetime.datetime.now()
         _today = str(_now).split()[0]
         _tomorrow = str(_now + datetime.timedelta(days=1)).split()[0]
         _yestoday = str(_now - datetime.timedelta(days=1)).split()[0]
-        # 今天的domain数量 - 昨天domain数量 = 日增量
-        yestoday_domain = self.report.find_one(
-            {'timestamp': {'$gt': _yestoday, '$lt': _today}}
-        )
+        # 域名数量计算
+        self.daily_report['domain_number'] = self.domain.find({'timestamp': {'$gt': _today, '$lt': _tomorrow}}).count()
 
-        if yestoday_domain is not None:
-            self.daily_report['domain_daily_increment'] = self.domain.count() - yestoday_domain['domain_number']
-        else:
-            self.daily_report['domain_daily_increment'] = 0
+        # 标签统计
+        self.daily_report['tags_sinkhole_number'] = self.domain.find({'timestamp': {'$gt': _today, '$lt': _tomorrow}, 'tags': 'sinkhole'}).count()
+        self.daily_report['tags_active_number'] = self.domain.find({'timestamp': {'$gt': _today, '$lt': _tomorrow}, 'tags': 'active'}).count()
+        self.daily_report['tags_inactive_number'] = self.domain.find({'timestamp': {'$gt': _today, '$lt': _tomorrow}, 'tags': 'inactive'}).count()
+        self.daily_report['tags_ddns_number'] = self.domain.find({'timestamp': {'$gt': _today, '$lt': _tomorrow}, 'tags': 'ddns'}).count()
+
+        # 日增量计算
+        # 今天的domain数量 - 昨天domain数量 = 日增量
+        yestoday_domain = self.domain.find({'timestamp': {'$gt': _yestoday, '$lt': _today}}).count()
+
+        self.daily_report['domain_daily_increment'] = self.daily_report.get('domain_number', 0) - yestoday_domain
 
         # 窗口期增量计算
         _windowl_date = str(_now - datetime.timedelta(days=6)).split()[0]
         _windowr_date = str(_now - datetime.timedelta(days=5)).split()[0]
-        _window_domain = self.report.find_one({'timestamp': {'$gt': _windowl_date, '$lt': _windowr_date}})
-        if _window_domain is not None:
-            self.daily_report['window_increment'] = self.domain.count() - _window_domain['domain_number']
-        else:
-            self.daily_report['window_increment'] = 0
+        window_count = self.domain.find({'timestamp': {'$gt': _windowl_date, '$lt': _windowr_date}}).count()
+
+        self.daily_report['window_increment'] = self.daily_report.get('domain_number', 0) - window_count
 
     def generate_report(self):
         """
@@ -105,38 +97,31 @@ class Stats(object):
         记录每天的域名对应的ip信息，统计域名绑定的ip地址的变化情况
         :return:
         """
-        _now = datetime.datetime.now()
-        _today = str(_now).split()[0]
-        _tomorrow = str(_now + datetime.timedelta(days=1)).split()[0]
-        # 获取到去重后的今天解析过的域名列表
-        domains = self.domain.find({'iplist': {'$exists': True}})
-        # 统计今天的结果，将今天的domain绑定的ip存入数据库
-        for data in domains:
-            d = data.get('iplist')
-            _domain = data.get('original_domain')
-            for ip in d:
-                self.ddns.update({'original_domain': _domain},
-                                 {'$addToSet': {'ipstats': {'timestamp': ip['timestamp'], 'iplist': ip['ip']}},
-                                  '$set': {'original_domain': _domain}}, upsert=True)
+        pipeline = [
+            {'$match': {'iplist': {'$exists': True}, 'tags': {'$not': {'$in': ['sinkhole']}}}},
+            {'$group': {'_id': '$original_domain', 'ipstats': {'$push': '$iplist'}}}
+        ]
+        domains = self.domain.aggregate(pipeline=pipeline, allowDiskUse=True)
 
         # 检测domain绑定的ip变化的情况
         for d in domains:
-            _domain = d.get('original_domain')
+            _domain = d.get('_id')
             md5_list = []
-            data = self.ddns.find_one({'original_domain': _domain})
-            # print _domain
-            if data is not None:
-                # 下面循环中每次循环获取一天的iplist,得到每天ip的md5
-                for i in data['ipstats']:
-                    iplist = i['iplist']
-                    iplist.sort()
-                    md5 = hashlib.md5(','.join(iplist)).hexdigest()
-                    md5_list.append(md5)
-                # 将ip变化的情况存入数据库
-                count = self.changing_count(md5_list)
-                self.ddns.update({'original_domain': _domain},
-                                 {'$set': {'changing_times': count[0], 'changing_range': count[1]}},
-                                 upsert=True)
+
+            # 下面循环中每次循环获取一天的iplist,得到每天ip的md5
+            ipstats = d.get('ipstats')
+            for iplist in ipstats:
+                iplist.sort()
+                md5 = hashlib.md5(','.join(iplist)).hexdigest()
+                md5_list.append(md5)
+            # 将ip变化的情况存入数据库
+            count = self.changing_count(md5_list)
+            d['changing_times'] = count[0]
+            d['changing_range'] = count[1]
+            d['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+            d['original_domain'] = d.get('_id')
+            d.pop('_id')
+            self.ddns.insert(d)
 
     def export2excel(self):
         try:

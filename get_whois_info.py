@@ -22,26 +22,31 @@ class MultiThread(object):
         self.thread_count = 10
         self.count = 0
         # domain resource
-        self.domain = pymongo.MongoClient(cfg.get('common', 'host'), cfg.getint('common', 'port'))[cfg.get('common', 'db')][cfg.get('common', 'collection')]
-        self.local_domain = pymongo.MongoClient(cfg.get('common', 'local_avclass_host'), cfg.getint('common', 'local_avclass_port'))[cfg.get('common', 'local_avclass_db')][cfg.get('common', 'local_avclass_collection')]
+        self.domain = pymongo.MongoClient(cfg.get('common', 'host'), cfg.getint('common', 'port'))['virustotal']['maldomain']
+        self.local_domain = pymongo.MongoClient(cfg.get('common', 'local_avclass_host'), cfg.getint('common', 'local_avclass_port'))['vtfeed']['maldomain']
 
     def in_queue(self):
-        data = self.domain.find()
+        pipeline = [
+            {'$unwind': '$domains'},
+            {'$group': {'_id': '$domains.domain'}}
+        ]
+
+        data = self.domain.aggregate(pipeline=pipeline, allowDiskUse=True)
         self.count = 0
         for d in data:
-            domains = d['domains']
+            domain = d.get('_id')
             self.count += 1
-            for domain in domains:
-                self._queue.put(domain['domain'])
+            self._queue.put(domain)
+        print 'put %d domains from remote avclass to queue' % self.count
         # local avclass domain
-        data = self.local_domain.find()
+        data = self.local_domain.aggregate(pipeline=pipeline, allowDiskUse=True)
         self.count = 0
         for d in data:
-            domains = d.get('domains')
+            domain = d.get('_id')
             self.count += 1
             # print 'put [%d]family: %s in queue' % (self.count, d['family'])
-            for domain in domains:
-                self._queue.put(domain.get('domain'))
+            self._queue.put(domain)
+        print 'put %d domains from local avclass to queue' % self.count
 
     def start_monitor(self):
         self.in_queue()
@@ -63,6 +68,7 @@ class MultiThread(object):
             print '[info][%s]task: start.' % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             self.start_monitor()
             print '[info][%s]task: done.' % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+            time.sleep(60*60*24)
 
 
 class WhoisMonitor(threading.Thread):
@@ -70,13 +76,7 @@ class WhoisMonitor(threading.Thread):
         threading.Thread.__init__(self)
         self._queue = queue
         # mongodb config
-        self.host = cfg.get('mongodb', 'host')
-        self.port = cfg.getint('mongodb', 'port')
-        self.client = pymongo.MongoClient(self.host, self.port)
-        self.db = self.client[cfg.get('mongodb', 'db')]
-        self.domain = self.db[cfg.get('mongodb', 'collection')]
-        self.domain_whois = self.db['domain_whois']
-        # self.domain_whois = self.db['test_whois']
+        self.domain_whois = pymongo.MongoClient(cfg.get('mongodb', 'host'), cfg.getint('mongodb', 'port'))['virustotal']['domain_whois']
 
         # 临时保存解析结果
         self.whois_doc = {}

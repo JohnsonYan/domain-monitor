@@ -2441,3 +2441,4 @@ Thu, 04 Jan 2018 15:59:59 test_stats.py[line:181] INFO 		domain_daily_increment 
 Thu, 04 Jan 2018 15:59:59 test_stats.py[line:181] INFO 		_id [5a4ddeffc3c0ec36b71a0a31]
 Thu, 04 Jan 2018 15:59:59 test_stats.py[line:181] INFO 		tags_sinkhole_number [7638]
 Thu, 04 Jan 2018 15:59:59 test_stats.py[line:183] INFO Export to Excel:"report.xls".
+Thu, 04 Jan 2018 16:44:39 domain_monitor.py[line:92] INFO Task Started.

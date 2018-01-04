@@ -11,14 +11,14 @@ class Detector(object):
         # mongodb init
         self.ddns = pymongo.MongoClient(
             cfg.get('mongodb', 'host'),
-            cfg.getint('mongodb', 'port'))[cfg.get('mongodb', 'db')][cfg.get('mongodb', 'ddns')]
+            cfg.getint('mongodb', 'port'))['virustotal']['ddns']
         self.domain = pymongo.MongoClient(
             cfg.get('mongodb', 'host'),
-            cfg.getint('mongodb', 'port'))[cfg.get('mongodb', 'db')][cfg.get('mongodb', 'domain')]
+            cfg.getint('mongodb', 'port'))['virustotal']['domain']
         # 该collection存储每个ip相关联的domain信息
         self.ip2domain = pymongo.MongoClient(
             cfg.get('mongodb', 'host'),
-            cfg.getint('mongodb', 'port'))[cfg.get('mongodb', 'db')][cfg.get('mongodb', 'ip2domain')]
+            cfg.getint('mongodb', 'port'))['virustotal']['ip2domain']
 
     def add_tags_ddns(self):
         """
@@ -28,8 +28,8 @@ class Detector(object):
         """
         cursor = self.ddns.find({'changing_times': {'$gt': 10}, 'changing_range': {'$gt': 5}})
         for cur in cursor:
-            domain = cur['original_domain']
-            self.domain.update({'original_domain': domain}, {'$addToSet': {'tags': 'ddns'}})
+            domain = cur.get('original_domain')
+            self.domain.update({'original_domain': domain}, {'$addToSet': {'tags': 'ddns'}}, multi=True)
         print 'add tags: ddns'
 
     def match_ip2domain(self):
@@ -39,38 +39,40 @@ class Detector(object):
         :return:
         """
         # 这里排除掉被sinkhole的IP
-        ips = self.domain.distinct('iplist.ip', {'tags': {'$not': {'$in': ['sinkhole']}}})
-        for ip in ips:
-            domains = self.domain.find({'iplist.ip': ip})
+        pipeline = [
+            {'$match': {'tags': {'$not': {'$in': ['sinkhole']}}}},
+            {'$unwind': '$iplist'},
+            {'$group': {'_id': '$iplist'}}
+        ]
+
+        ips = self.domain.aggregate(pipeline=pipeline, allowDiskUse=True)
+
+        for i in ips:
+            ip = i.get('_id')
+            domains = self.domain.find({'iplist': ip})
             for domain in domains:
-                self.ip2domain.update({'ip': ip}, {'$addToSet': {'domains':
-                                                                     {'domain': domain['original_domain'],
-                                                                      'family': domain.get('family')}}}, upsert=True)
+                self.ip2domain.update({'ip': ip}, {'$addToSet': {'domains': {'domain': domain.get('original_domain'),
+                                                                             'family': domain.get('family')}}},
+                                      upsert=True)
         print 'match ip2domain'
 
         # 匹配同一IP对应的domain中，每个family下的domain情况
         # 比如:
         #   family1:[domain1, domain2, ..., domainx]
         #   family2:[domain1, domain2, ..., domainx]
-        for ip in ips:
+        ips = self.ip2domain.find()
+        for data in ips:
             same_family = {}
-            data = self.ip2domain.find_one({'ip': ip})
-            for d in data['domains']:
+            for d in data.get('domains'):
                 if d.get('family') is not None:
-                    if type(d.get('family')) == str:
-                        same_family[d.get('family')] = []
-                    else:
-                        for f in d.get('family'):
-                            same_family[f] = []
-            for d in data['domains']:
+                    for f in d.get('family'):
+                        same_family[f] = []
+            for d in data.get('domains'):
                 if d.get('family') is not None:
-                    if type(d.get('family')) == str:
-                        same_family[d.get('family')].append(d['domain'])
-                    else:
-                        for f in d.get('family'):
-                            same_family[f].append(d['domain'])
+                    for f in d.get('family'):
+                        same_family[f].append(d.get('domain'))
                     
-            self.ip2domain.update({'ip': ip}, {'$set': {'same_family': same_family}})
+            self.ip2domain.update({'ip': data.get('ip')}, {'$set': {'same_family': same_family}})
         print 'match same family'
 
     def detect(self):
