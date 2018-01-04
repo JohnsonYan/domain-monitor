@@ -57,12 +57,19 @@ class Detector(object):
             data = self.ip2domain.find_one({'ip': ip})
             for d in data['domains']:
                 if d.get('family') is not None:
-                    for f in d.get('family'):
-                        same_family[f] = []
+                    if type(d.get('family')) == str:
+                        same_family[d.get('family')] = []
+                    else:
+                        for f in d.get('family'):
+                            same_family[f] = []
             for d in data['domains']:
                 if d.get('family') is not None:
-                    for f in d.get('family'):
-                        same_family[f].append(d['domain'])
+                    if type(d.get('family')) == str:
+                        same_family[d.get('family')].append(d['domain'])
+                    else:
+                        for f in d.get('family'):
+                            same_family[f].append(d['domain'])
+                    
             self.ip2domain.update({'ip': ip}, {'$set': {'same_family': same_family}})
         print 'match same family'
 

@@ -171,3 +171,42 @@ Sun, 24 Dec 2017 09:43:31 domain_monitor.py[line:234] INFO Clean outdated domain
 Mon, 25 Dec 2017 01:43:31 domain_monitor.py[line:88] INFO Task Started.
 Mon, 25 Dec 2017 12:27:10 domain_monitor.py[line:90] INFO Task Completed.
 Mon, 25 Dec 2017 12:27:12 domain_monitor.py[line:234] INFO Clean outdated domains. Outdate time: 2017-10-26 12:27:10.828743
+Tue, 26 Dec 2017 01:48:34 domain_monitor.py[line:88] INFO Task Started.
+Tue, 26 Dec 2017 15:32:02 domain_monitor.py[line:90] INFO Task Completed.
+Tue, 26 Dec 2017 15:32:04 domain_monitor.py[line:234] INFO Clean outdated domains. Outdate time: 2017-10-27 15:32:02.767123
+Wed, 27 Dec 2017 01:32:04 domain_monitor.py[line:88] INFO Task Started.
+Wed, 27 Dec 2017 19:10:43 domain_monitor.py[line:90] INFO Task Completed.
+Wed, 27 Dec 2017 19:10:44 domain_monitor.py[line:234] INFO Clean outdated domains. Outdate time: 2017-10-28 19:10:43.331931
+Thu, 28 Dec 2017 01:10:44 domain_monitor.py[line:88] INFO Task Started.
+Thu, 28 Dec 2017 22:56:28 domain_monitor.py[line:90] INFO Task Completed.
+Thu, 28 Dec 2017 22:56:29 domain_monitor.py[line:234] INFO Clean outdated domains. Outdate time: 2017-10-29 22:56:28.604273
+Fri, 29 Dec 2017 01:56:30 domain_monitor.py[line:88] INFO Task Started.
+Sat, 30 Dec 2017 04:06:12 domain_monitor.py[line:90] INFO Task Completed.
+Sat, 30 Dec 2017 04:06:13 domain_monitor.py[line:234] INFO Clean outdated domains. Outdate time: 2017-10-31 04:06:12.669737
+Sun, 31 Dec 2017 01:06:15 domain_monitor.py[line:88] INFO Task Started.
+Mon, 01 Jan 2018 09:09:01 domain_monitor.py[line:90] INFO Task Completed.
+Mon, 01 Jan 2018 09:09:02 domain_monitor.py[line:234] INFO Clean outdated domains. Outdate time: 2017-11-02 09:09:01.714959
+Tue, 02 Jan 2018 01:09:04 domain_monitor.py[line:88] INFO Task Started.
+Wed, 03 Jan 2018 01:58:50 domain_monitor.py[line:88] INFO Task Started.
+Wed, 03 Jan 2018 10:51:24 domain_monitor.py[line:88] INFO Task Started.
+Wed, 03 Jan 2018 16:23:04 domain_monitor.py[line:88] INFO Task Started.
+Thu, 04 Jan 2018 10:01:59 domain_monitor.py[line:88] INFO Task Started.
+Thu, 04 Jan 2018 10:32:20 test_domain_monitor.py[line:90] INFO Task Started.
+Thu, 04 Jan 2018 10:32:25 test_domain_monitor.py[line:90] INFO Task Started.
+Thu, 04 Jan 2018 10:32:27 test_domain_monitor.py[line:90] INFO Task Started.
+Thu, 04 Jan 2018 10:32:30 test_domain_monitor.py[line:90] INFO Task Started.
+Thu, 04 Jan 2018 10:32:33 test_domain_monitor.py[line:90] INFO Task Started.
+Thu, 04 Jan 2018 10:32:37 test_domain_monitor.py[line:90] INFO Task Started.
+Thu, 04 Jan 2018 10:33:25 test_domain_monitor.py[line:90] INFO Task Started.
+Thu, 04 Jan 2018 10:33:49 test_domain_monitor.py[line:92] INFO Task Completed.
+Thu, 04 Jan 2018 10:33:49 test_domain_monitor.py[line:218] INFO Clean outdated domains. Outdate time: 2017-11-05 10:33:49.332903. Delete number: 0
+Thu, 04 Jan 2018 10:35:10 test_domain_monitor.py[line:90] INFO Task Started.
+Thu, 04 Jan 2018 10:43:59 test_domain_monitor.py[line:90] INFO Task Started.
+Thu, 04 Jan 2018 10:53:49 test_domain_monitor.py[line:92] INFO Task Completed.
+Thu, 04 Jan 2018 10:53:49 test_domain_monitor.py[line:218] INFO Clean outdated domains. Outdate time: 2017-11-05 10:53:49.650596. Delete number: 0
+Thu, 04 Jan 2018 13:41:40 test_domain_monitor.py[line:90] INFO Task Started.
+Thu, 04 Jan 2018 13:44:12 test_domain_monitor.py[line:92] INFO Task Started.
+Thu, 04 Jan 2018 13:50:35 domain_monitor.py[line:90] INFO Task Completed.
+Thu, 04 Jan 2018 13:50:37 domain_monitor.py[line:237] INFO Clean outdated domains. Outdate time: 2017-11-05 13:50:35.785467
+Thu, 04 Jan 2018 14:15:18 test_domain_monitor.py[line:94] INFO Task Completed.
+Thu, 04 Jan 2018 14:15:18 test_domain_monitor.py[line:220] INFO Clean outdated domains. Outdate time: 2017-11-05 14:15:18.142231. Delete number: 0

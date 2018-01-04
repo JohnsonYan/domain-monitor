@@ -19,14 +19,13 @@ class MultiThread(object):
         # queue config
         self._queue = Queue.Queue()
         # threads config
-        self.thread_count = 20
+        self.thread_count = 10
         self.count = 0
         # domain resource
         self.domain = pymongo.MongoClient(cfg.get('common', 'host'), cfg.getint('common', 'port'))[cfg.get('common', 'db')][cfg.get('common', 'collection')]
         self.local_domain = pymongo.MongoClient(cfg.get('common', 'local_avclass_host'), cfg.getint('common', 'local_avclass_port'))[cfg.get('common', 'local_avclass_db')][cfg.get('common', 'local_avclass_collection')]
 
     def in_queue(self):
-        # batch_size，小一些防止cursor失效
         data = self.domain.find()
         self.count = 0
         for d in data:
@@ -109,7 +108,8 @@ class WhoisMonitor(threading.Thread):
             self.domain_whois.update({'original_domain': domain}, {'$set': self.whois_doc}, upsert=True)
             # print '[debug]upsert %s' % domain
         except Exception as msg:
-            print msg
+            pass
+            # print msg
 
 
 if __name__ == '__main__':
@@ -122,4 +122,5 @@ if __name__ == '__main__':
             mt.schedule()
             time.sleep(60 * 60)
         except Exception as msg:
-            print msg
+            pass
+            # print msg

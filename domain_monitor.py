@@ -201,24 +201,27 @@ class DomainMonitor(threading.Thread):
 
             # 根据是否能解析出ip地址，数据库操作有所不同 1
             # 存入数据库-Collection: domain
-            self.domain.update({'original_domain': domain}, {'$pull': {'tags': 'inactive'}})
-            self.domain.update({'original_domain': domain},
-                               {'$set': self.document,
-                                '$addToSet': {'iplist': {'ip': ips, 'timestamp': time.strftime('%Y-%m-%d %H:%M:%S',
-                                                                                               time.localtime(
-                                                                                                   time.time()))},
-                                              'family': family,
-                                              'tags': {'$each': list(self.tags)}}
-                                },
-                               upsert=True)
+            # self.domain.update({'original_domain': domain}, {'$pull': {'tags': 'inactive'}})
+            # self.domain.update({'original_domain': domain},
+            #                    {'$set': self.document,
+            #                     '$addToSet': {'iplist': {'ip': ips, 'timestamp': time.strftime('%Y-%m-%d %H:%M:%S',
+            #                                                                                    time.localtime(
+            #                                                                                        time.time()))},
+            #                                   'family': family,
+            #                                   'tags': {'$each': list(self.tags)}}
+            #                     },
+            #                    upsert=True)
+            # time.sleep(0.1)
         else:
             # 根据是否能解析出ip地址，数据库操作有所不同 2
             # 存入数据库-Collection: domain
-            self.domain.update({'original_domain': domain}, {'$pull': {'tags': 'active'}})
-            self.domain.update({'original_domain': domain},
-                               {'$set': self.document,
-                                '$addToSet': {'tags': {'$each': list(self.tags)}}},
-                               upsert=True)
+            # self.domain.update({'original_domain': domain}, {'$pull': {'tags': 'active'}})
+            # self.domain.update({'original_domain': domain},
+            #                    {'$set': self.document,
+            #                     '$addToSet': {'tags': {'$each': list(self.tags)}}},
+            #                    upsert=True)
+            # time.sleep(0.1)
+            pass
 
     def clean_outdated_domains(self):
         """
