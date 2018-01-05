@@ -19,6 +19,9 @@ class Detector(object):
         self.ip2domain = pymongo.MongoClient(
             cfg.get('mongodb', 'host'),
             cfg.getint('mongodb', 'port'))['virustotal']['ip2domain']
+        # 每次创建ip2domain都是对全部数据的聚合，可以在创建前删除已有的数据
+        delete = self.ip2domain.delete_many({})
+        print 'delete all ip2domain documents. count: %d' % delete.deleted_count
 
     def add_tags_ddns(self):
         """
@@ -27,9 +30,10 @@ class Detector(object):
         :return:
         """
         cursor = self.ddns.find({'changing_times': {'$gt': 10}, 'changing_range': {'$gt': 5}})
-        for cur in cursor:
-            domain = cur.get('original_domain')
-            self.domain.update({'original_domain': domain}, {'$addToSet': {'tags': 'ddns'}}, multi=True)
+        if cursor is not None:
+            for cur in cursor:
+                domain = cur.get('original_domain')
+                self.domain.update({'original_domain': domain}, {'$addToSet': {'tags': 'ddns'}}, multi=True)
         print 'add tags: ddns'
 
     def match_ip2domain(self):
@@ -50,30 +54,37 @@ class Detector(object):
         for i in ips:
             ip = i.get('_id')
             domains = self.domain.find({'iplist': ip})
+            doc = {'ip': ip}
+            buf = []
             for domain in domains:
-                self.ip2domain.update({'ip': ip}, {'$addToSet': {'domains': {'domain': domain.get('original_domain'),
-                                                                             'family': domain.get('family')}}},
-                                      upsert=True)
-        print 'match ip2domain'
+                buf.append({'domain': domain.get('original_domain'), 'family': domain.get('family')})
 
-        # 匹配同一IP对应的domain中，每个family下的domain情况
-        # 比如:
-        #   family1:[domain1, domain2, ..., domainx]
-        #   family2:[domain1, domain2, ..., domainx]
-        ips = self.ip2domain.find()
-        for data in ips:
+            # print 'match domains'
+
+            # 匹配同一IP对应的domain中，每个family下的domain情况
+            # 比如:
+            #   family1:[domain1, domain2, ..., domainx]
+            #   family2:[domain1, domain2, ..., domainx]
             same_family = {}
-            for d in data.get('domains'):
+            for d in buf:
                 if d.get('family') is not None:
                     for f in d.get('family'):
                         same_family[f] = []
-            for d in data.get('domains'):
+            for d in buf:
                 if d.get('family') is not None:
                     for f in d.get('family'):
                         same_family[f].append(d.get('domain'))
-                    
-            self.ip2domain.update({'ip': data.get('ip')}, {'$set': {'same_family': same_family}})
-        print 'match same family'
+            # 处理数据类型
+            for d in buf:
+                if d.get('family') is not None:
+                    for f in d.get('family'):
+                        same_family[f] = list(set(same_family[f]))
+            # print 'match same family'
+
+            doc['domains'] = buf
+            doc['same_family'] = same_family
+
+            self.ip2domain.insert(doc)
 
     def detect(self):
         self.add_tags_ddns()

@@ -211,3 +211,8 @@ Thu, 04 Jan 2018 13:50:37 domain_monitor.py[line:237] INFO Clean outdated domain
 Thu, 04 Jan 2018 14:15:18 test_domain_monitor.py[line:94] INFO Task Completed.
 Thu, 04 Jan 2018 14:15:18 test_domain_monitor.py[line:220] INFO Clean outdated domains. Outdate time: 2017-11-05 14:15:18.142231. Delete number: 0
 Thu, 04 Jan 2018 16:44:39 domain_monitor.py[line:92] INFO Task Started.
+Thu, 04 Jan 2018 17:15:51 domain_monitor.py[line:94] INFO Task Completed.
+Thu, 04 Jan 2018 17:15:51 domain_monitor.py[line:217] INFO Clean outdated domains. Outdate time: 2017-11-05 17:15:51.563672. Delete number: 0
+Fri, 05 Jan 2018 13:11:03 domain_monitor.py[line:92] INFO Task Started.
+Fri, 05 Jan 2018 13:38:35 domain_monitor.py[line:94] INFO Task Completed.
+Fri, 05 Jan 2018 13:38:35 domain_monitor.py[line:217] INFO Clean outdated domains. Outdate time: 2017-11-06 13:38:35.262935. Delete number: 0

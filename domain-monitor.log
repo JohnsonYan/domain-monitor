@@ -2442,3 +2442,66 @@ Thu, 04 Jan 2018 15:59:59 test_stats.py[line:181] INFO 		_id [5a4ddeffc3c0ec36b7
 Thu, 04 Jan 2018 15:59:59 test_stats.py[line:181] INFO 		tags_sinkhole_number [7638]
 Thu, 04 Jan 2018 15:59:59 test_stats.py[line:183] INFO Export to Excel:"report.xls".
 Thu, 04 Jan 2018 16:44:39 domain_monitor.py[line:92] INFO Task Started.
+Thu, 04 Jan 2018 17:15:51 domain_monitor.py[line:94] INFO Task Completed.
+Thu, 04 Jan 2018 17:15:51 domain_monitor.py[line:217] INFO Clean outdated domains. Outdate time: 2017-11-05 17:15:51.563672. Delete number: 0
+Thu, 04 Jan 2018 22:01:31 stats.py[line:175] INFO DDNS detect.
+Thu, 04 Jan 2018 22:03:00 stats.py[line:177] INFO detector.py finish
+Thu, 04 Jan 2018 22:03:01 stats.py[line:179] INFO Report generation.
+Thu, 04 Jan 2018 22:03:01 stats.py[line:181] INFO 		tags_active_number [101389]
+Thu, 04 Jan 2018 22:03:01 stats.py[line:181] INFO 		tags_inactive_number [221404]
+Thu, 04 Jan 2018 22:03:01 stats.py[line:181] INFO 		timestamp [2018-01-04 22:03:00]
+Thu, 04 Jan 2018 22:03:01 stats.py[line:181] INFO 		window_increment [323442]
+Thu, 04 Jan 2018 22:03:01 stats.py[line:181] INFO 		domain_number [323442]
+Thu, 04 Jan 2018 22:03:01 stats.py[line:181] INFO 		tags_ddns_number [0]
+Thu, 04 Jan 2018 22:03:01 stats.py[line:181] INFO 		domain_daily_increment [323442]
+Thu, 04 Jan 2018 22:03:01 stats.py[line:181] INFO 		_id [5a4e3415c3c0ec386b12dbc3]
+Thu, 04 Jan 2018 22:03:01 stats.py[line:181] INFO 		tags_sinkhole_number [7597]
+Thu, 04 Jan 2018 22:03:01 stats.py[line:183] INFO Export to Excel:"report.xls".
+Fri, 05 Jan 2018 13:11:03 domain_monitor.py[line:92] INFO Task Started.
+Fri, 05 Jan 2018 13:38:35 domain_monitor.py[line:94] INFO Task Completed.
+Fri, 05 Jan 2018 13:38:35 domain_monitor.py[line:217] INFO Clean outdated domains. Outdate time: 2017-11-06 13:38:35.262935. Delete number: 0
+Fri, 05 Jan 2018 13:45:00 stats.py[line:178] INFO DDNS detect.
+Fri, 05 Jan 2018 13:50:24 stats.py[line:178] INFO DDNS detect.
+Fri, 05 Jan 2018 13:54:56 stats.py[line:178] INFO DDNS detect.
+Fri, 05 Jan 2018 13:56:34 stats.py[line:178] INFO DDNS detect.
+Fri, 05 Jan 2018 14:03:27 stats.py[line:178] INFO DDNS detect.
+Fri, 05 Jan 2018 14:08:39 stats.py[line:178] INFO DDNS detect.
+Fri, 05 Jan 2018 14:09:25 stats.py[line:180] INFO detector.py finish
+Fri, 05 Jan 2018 14:09:26 stats.py[line:182] INFO Report generation.
+Fri, 05 Jan 2018 14:09:26 stats.py[line:184] INFO 		tags_active_number [103986]
+Fri, 05 Jan 2018 14:09:26 stats.py[line:184] INFO 		tags_inactive_number [222182]
+Fri, 05 Jan 2018 14:09:26 stats.py[line:184] INFO 		timestamp [2018-01-05 14:09:25]
+Fri, 05 Jan 2018 14:09:26 stats.py[line:184] INFO 		window_increment [326819]
+Fri, 05 Jan 2018 14:09:26 stats.py[line:184] INFO 		domain_number [326819]
+Fri, 05 Jan 2018 14:09:26 stats.py[line:184] INFO 		tags_ddns_number [0]
+Fri, 05 Jan 2018 14:09:26 stats.py[line:184] INFO 		domain_daily_increment [3377]
+Fri, 05 Jan 2018 14:09:26 stats.py[line:184] INFO 		_id [5a4f1696c3c0ec5f28426550]
+Fri, 05 Jan 2018 14:09:26 stats.py[line:184] INFO 		tags_sinkhole_number [7758]
+Fri, 05 Jan 2018 14:09:26 stats.py[line:186] INFO Export to Excel:"report.xls".
+Fri, 05 Jan 2018 14:14:38 stats.py[line:178] INFO DDNS detect.
+Fri, 05 Jan 2018 14:20:18 stats.py[line:178] INFO DDNS detect.
+Fri, 05 Jan 2018 14:20:55 stats.py[line:180] INFO detector.py finish
+Fri, 05 Jan 2018 14:20:56 stats.py[line:182] INFO Report generation.
+Fri, 05 Jan 2018 14:20:56 stats.py[line:184] INFO 		tags_active_number [103986]
+Fri, 05 Jan 2018 14:20:56 stats.py[line:184] INFO 		tags_inactive_number [222182]
+Fri, 05 Jan 2018 14:20:56 stats.py[line:184] INFO 		timestamp [2018-01-05 14:20:55]
+Fri, 05 Jan 2018 14:20:56 stats.py[line:184] INFO 		window_increment [326819]
+Fri, 05 Jan 2018 14:20:56 stats.py[line:184] INFO 		domain_number [326819]
+Fri, 05 Jan 2018 14:20:56 stats.py[line:184] INFO 		tags_ddns_number [0]
+Fri, 05 Jan 2018 14:20:56 stats.py[line:184] INFO 		domain_daily_increment [3377]
+Fri, 05 Jan 2018 14:20:56 stats.py[line:184] INFO 		_id [5a4f1948c3c0ec5f68927c32]
+Fri, 05 Jan 2018 14:20:56 stats.py[line:184] INFO 		tags_sinkhole_number [7758]
+Fri, 05 Jan 2018 14:20:56 stats.py[line:186] INFO Export to Excel:"report.xls".
+Fri, 05 Jan 2018 14:22:33 stats.py[line:178] INFO DDNS detect.
+Fri, 05 Jan 2018 14:23:12 stats.py[line:180] INFO detector.py finish
+Fri, 05 Jan 2018 14:23:13 stats.py[line:182] INFO Report generation.
+Fri, 05 Jan 2018 14:23:13 stats.py[line:184] INFO 		tags_active_number [103986]
+Fri, 05 Jan 2018 14:23:13 stats.py[line:184] INFO 		tags_inactive_number [222182]
+Fri, 05 Jan 2018 14:23:13 stats.py[line:184] INFO 		timestamp [2018-01-05 14:23:12]
+Fri, 05 Jan 2018 14:23:13 stats.py[line:184] INFO 		window_increment [326819]
+Fri, 05 Jan 2018 14:23:13 stats.py[line:184] INFO 		domain_number [326819]
+Fri, 05 Jan 2018 14:23:13 stats.py[line:184] INFO 		tags_ddns_number [0]
+Fri, 05 Jan 2018 14:23:13 stats.py[line:184] INFO 		domain_daily_increment [3377]
+Fri, 05 Jan 2018 14:23:13 stats.py[line:184] INFO 		_id [5a4f19d1c3c0ec5f862df887]
+Fri, 05 Jan 2018 14:23:13 stats.py[line:184] INFO 		tags_sinkhole_number [7758]
+Fri, 05 Jan 2018 14:23:13 stats.py[line:186] INFO Export to Excel:"report.xls".

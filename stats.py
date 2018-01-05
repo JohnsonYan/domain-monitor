@@ -12,7 +12,7 @@ import detector
 class Stats(object):
     def __init__(self):
         # schedule config
-        self.time_list = 22
+        self.time_list = 13
         # logging config
         logging.config.fileConfig('logging.conf')
         self.log = logging.getLogger('report')
@@ -20,6 +20,9 @@ class Stats(object):
         self.domain = pymongo.MongoClient('localhost', 27017)['virustotal']['domain']
         self.report = pymongo.MongoClient('localhost', 27017)['virustotal']['report']
         self.ddns = pymongo.MongoClient('localhost', 27017)['virustotal']['ddns']
+        # 每次创建ddns都是对全部数据的聚合，可以在创建前删除已有的数据
+        delete = self.ddns.delete_many({})
+        print 'delete all ddns documents. count: %d' % delete.deleted_count
         # report document
         self.daily_report = {}
 
