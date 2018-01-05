@@ -212,9 +212,11 @@ class DomainMonitor(threading.Thread):
         _outdate = str(_now - datetime.timedelta(days=cfg.getint('common', 'days')))
 
         result = self.domain.delete_many({'timestamp': {'$lt': _outdate}})
-        count = result.deleted_count
+        result2 = self.domain_ip.delete_many({'timestamp': {'$lt': _outdate}})
+
         # print 'Clean outdated domains. Outdate time: %s' % _outdate
-        log.info('Clean outdated domains. Outdate time: %s. Delete number: %d' % (_outdate, count))
+        log.info('Clean outdated domains. Outdate time: %s. Delete number: %d' % (_outdate, result.deleted_count))
+        log.info('Clean outdated domain_ip data. Outdate time: %s. Delete number: %d' % (_outdate, result2.deleted_count))
 
 
 if __name__ == '__main__':
