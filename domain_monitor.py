@@ -49,25 +49,31 @@ class MultiThread(object):
             {'$group': {'_id': '$domains.domain', 'family': {'$addToSet': '$family'}}}
         ]
 
-        data = self.domain.aggregate(pipeline=pipeline, allowDiskUse=True)
-        self.count = 0
-        for d in data:
-            domain = d.get('_id')
-            family = d.get('family')
-            self.count += 1
-            # print 'put [%d]family: %s in queue' % (self.count, d['family'])
-            self._queue.put([domain, family])
-        print 'put %d domains from remote avclass to queue' % self.count
+        try:
+            data = self.domain.aggregate(pipeline=pipeline, allowDiskUse=True)
+            self.count = 0
+            for d in data:
+                domain = d.get('_id')
+                family = d.get('family')
+                self.count += 1
+                # print 'put [%d]family: %s in queue' % (self.count, d['family'])
+                self._queue.put([domain, family])
+            print 'put %d domains from remote avclass to queue'%self.count
+        except Exception as msg:
+            print msg
 
-        # local avclass maldomain
-        data = self.local_avclass_domain.aggregate(pipeline=pipeline, allowDiskUse=True)
-        self.count = 0
-        for d in data:
-            domain = d.get('_id')
-            family = d.get('family')
-            self.count += 1
-            self._queue.put([domain, family])
-        print 'put %d domains from local avclass to queue' % self.count
+        try:
+            # local avclass maldomain
+            data = self.local_avclass_domain.aggregate(pipeline=pipeline, allowDiskUse=True)
+            self.count = 0
+            for d in data:
+                domain = d.get('_id')
+                family = d.get('family')
+                self.count += 1
+                self._queue.put([domain, family])
+            print 'put %d domains from local avclass to queue' % self.count
+        except Exception as msg:
+            print msg
 
     def start_monitor(self):
         self.in_queue()
